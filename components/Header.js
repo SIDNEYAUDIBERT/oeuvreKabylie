@@ -24,7 +24,9 @@ const Header = () => {
 
   return (
     <div className="tableHead">
-      <input type="text" placeholder="Search here" />
+      <div className="searchBarContainer">
+        <input type="text" placeholder="Search here" className="searchBar" />
+      </div>
       <TableHead style={{ display: "flex", alignItems: "center" }}>
         {names.map((name, index) => (
           <Dropdown

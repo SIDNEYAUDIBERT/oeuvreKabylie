@@ -14901,10 +14901,13 @@
 	  console.log("Selected Epoque:", selectedEpoque);
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "tableHead"
+	  }, /*#__PURE__*/React.createElement("div", {
+	    className: "searchBarContainer"
 	  }, /*#__PURE__*/React.createElement("input", {
 	    type: "text",
-	    placeholder: "Search here"
-	  }), /*#__PURE__*/React.createElement(TableHead$1, {
+	    placeholder: "Search here",
+	    className: "searchBar"
+	  })), /*#__PURE__*/React.createElement(TableHead$1, {
 	    style: {
 	      display: "flex",
 	      alignItems: "center"

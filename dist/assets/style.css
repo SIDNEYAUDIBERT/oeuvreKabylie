@@ -8,6 +8,12 @@
   align-items: center;
 }
 
+.searchBarContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .Dropdown-root {
   position: relative;
 }
