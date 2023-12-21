@@ -1,45 +1,47 @@
 import React, { useState } from "react";
-import { TableHead } from "@material-ui/core";
-import Dropdown from "react-dropdown";
+import { Button, TableHead } from "@material-ui/core";
 import "react-dropdown/style.css";
 
 const Header = () => {
-  const optionsCategorie = ["Peinture", "Sculpture"];
-  const optionsEpoque = ["Baroque", "Renaissance"];
-  const names = ["CATEGORIE", "EPOQUE"];
+  const [selectedFilters, setselectedFilters] = useState([]);
+  const [selectedText, setselectedText] = useState("");
 
-  const [selectedCategorie, setSelectedCategorie] = useState("");
-  const [selectedEpoque, setSelectedEpoque] = useState("");
-
-  const handleDropdownChange = (name, selectedOption) => {
-    if (name === "CATEGORIE") {
-      setSelectedCategorie(selectedOption.value);
-    } else if (name === "EPOQUE") {
-      setSelectedEpoque(selectedOption.value);
+  const handleButtonClick = (filterName) => {
+    if (selectedFilters.includes(filterName)) {
+      setselectedFilters(
+        selectedFilters.filter((filter) => filter !== filterName)
+      );
+    } else {
+      setselectedFilters([...selectedFilters, filterName]);
     }
   };
 
-  console.log("Selected Categorie:", selectedCategorie);
-  console.log("Selected Epoque:", selectedEpoque);
+  const handleInputText = (event) => {
+    setselectedText(event.target.value);
+  };
+
+  console.log("Selected filter :", selectedFilters);
+  console.log("Selected text :", selectedText);
 
   return (
     <div className="tableHead">
       <div className="searchBarContainer">
-        <input type="text" placeholder="Search here" className="searchBar" />
+        <input
+          onChange={handleInputText}
+          type="text"
+          placeholder="Search here"
+          className="searchBar"
+        />
       </div>
       <TableHead style={{ display: "flex", alignItems: "center" }}>
-        {names.map((name, index) => (
-          <Dropdown
-            key={index}
-            options={name === "CATEGORIE" ? optionsCategorie : optionsEpoque}
-            value={name === "CATEGORIE" ? selectedCategorie : selectedEpoque}
-            placeholder={`${name}`}
-            onChange={(selectedOption) =>
-              handleDropdownChange(name, selectedOption)
-            }
-            style={{ margin: "0 10px" }}
-          />
-        ))}
+        <Button onClick={() => handleButtonClick("Baroque")}>Baroque</Button>
+        <Button onClick={() => handleButtonClick("Renaissance")}>
+          Renaissance
+        </Button>
+        <Button onClick={() => handleButtonClick("Peinture")}>Peinture</Button>
+        <Button onClick={() => handleButtonClick("Sculpture")}>
+          Sculpture
+        </Button>
       </TableHead>
     </div>
   );
