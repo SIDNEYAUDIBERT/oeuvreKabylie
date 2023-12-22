@@ -16172,19 +16172,23 @@
 	  }, /*#__PURE__*/React.createElement(Button$1, {
 	    onClick: function onClick() {
 	      return handleButtonClick("Baroque");
-	    }
+	    },
+	    className: selectedFilters.includes("Baroque") ? "selectedButton" : ""
 	  }, "Baroque"), /*#__PURE__*/React.createElement(Button$1, {
 	    onClick: function onClick() {
 	      return handleButtonClick("Renaissance");
-	    }
+	    },
+	    className: selectedFilters.includes("Renaissance") ? "selectedButton" : ""
 	  }, "Renaissance"), /*#__PURE__*/React.createElement(Button$1, {
 	    onClick: function onClick() {
 	      return handleButtonClick("Peinture");
-	    }
+	    },
+	    className: selectedFilters.includes("Peinture") ? "selectedButton" : ""
 	  }, "Peinture"), /*#__PURE__*/React.createElement(Button$1, {
 	    onClick: function onClick() {
 	      return handleButtonClick("Sculpture");
-	    }
+	    },
+	    className: selectedFilters.includes("Sculpture") ? "selectedButton" : ""
 	  }, "Sculpture")));
 	};
 

@@ -12,5 +12,11 @@
 .searchBarContainer {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  padding-left: 10px;
+}
+
+.selectedButton {
+  background-color: #4caf50;
+  color: black;
 }

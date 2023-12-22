@@ -34,12 +34,36 @@ const Header = () => {
         />
       </div>
       <TableHead style={{ display: "flex", alignItems: "center" }}>
-        <Button onClick={() => handleButtonClick("Baroque")}>Baroque</Button>
-        <Button onClick={() => handleButtonClick("Renaissance")}>
+        <Button
+          onClick={() => handleButtonClick("Baroque")}
+          className={
+            selectedFilters.includes("Baroque") ? "selectedButton" : ""
+          }
+        >
+          Baroque
+        </Button>
+        <Button
+          onClick={() => handleButtonClick("Renaissance")}
+          className={
+            selectedFilters.includes("Renaissance") ? "selectedButton" : ""
+          }
+        >
           Renaissance
         </Button>
-        <Button onClick={() => handleButtonClick("Peinture")}>Peinture</Button>
-        <Button onClick={() => handleButtonClick("Sculpture")}>
+        <Button
+          onClick={() => handleButtonClick("Peinture")}
+          className={
+            selectedFilters.includes("Peinture") ? "selectedButton" : ""
+          }
+        >
+          Peinture
+        </Button>
+        <Button
+          onClick={() => handleButtonClick("Sculpture")}
+          className={
+            selectedFilters.includes("Sculpture") ? "selectedButton" : ""
+          }
+        >
           Sculpture
         </Button>
       </TableHead>
