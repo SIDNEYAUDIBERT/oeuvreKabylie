@@ -9,6 +9,7 @@ import Oeuvre from "./Oeuvre";
 const Carousel = ({oeuvres}) => {
 
   
+    console.log("Oevres :",oeuvres)
 
 
     const CustomNextArrow = (props) => (

@@ -31,11 +31,13 @@ const SingleOeuvrePage = () => {
                                 oeuvre.categories === found.categories &&
                                 oeuvre.id !== id
                         )
-                        .map(({ id, titre, artiste, image }) => ({
+                        .map(({ id, titre, artiste, image, prix, date }) => ({
                             id,
                             titre,
                             artiste,
                             image,
+                            date,
+                            prix
                         }));
                 }
             }

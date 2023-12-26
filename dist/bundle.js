@@ -1,5 +1,5 @@
 
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 (function () {
 	'use strict';
 
@@ -19142,6 +19142,7 @@
 
 	var Carousel = function Carousel(_ref) {
 	  var oeuvres = _ref.oeuvres;
+	  console.log("Oevres :", oeuvres);
 	  var CustomNextArrow = function CustomNextArrow(props) {
 	    return /*#__PURE__*/React.createElement("div", _extends$3({}, props, {
 	      className: "custom-next-arrow"
@@ -19220,12 +19221,16 @@
 	              var id = _ref.id,
 	                titre = _ref.titre,
 	                artiste = _ref.artiste,
-	                image = _ref.image;
+	                image = _ref.image,
+	                prix = _ref.prix,
+	                date = _ref.date;
 	              return {
 	                id: id,
 	                titre: titre,
 	                artiste: artiste,
-	                image: image
+	                image: image,
+	                date: date,
+	                prix: prix
 	              };
 	            });
 	          }
