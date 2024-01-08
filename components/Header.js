@@ -1,82 +1,79 @@
 import React, { useState } from "react";
-import { Button, TableHead } from "@material-ui/core";
-import "react-dropdown/style.css";
 
-const Header = () => {
-    const [selectedFilters, setselectedFilters] = useState([]);
-    const [selectedText, setselectedText] = useState("");
+const Header = ({ onFilterChange }) => {
+  const [selectedFilters, setselectedFilters] = useState([]);
+  const [selectedText, setselectedText] = useState("");
 
-    const handleButtonClick = (filterName) => {
-        if (selectedFilters.includes(filterName)) {
-            setselectedFilters(
-                selectedFilters.filter((filter) => filter !== filterName)
-            );
-        } else {
-            setselectedFilters([...selectedFilters, filterName]);
-        }
-    };
+  const handleButtonClick = (filterName) => {
+    setselectedFilters((prevFilters) => {
+      const updatedFilters = prevFilters.includes(filterName)
+        ? prevFilters.filter((filter) => filter !== filterName)
+        : [...prevFilters, filterName];
 
-    const handleInputText = (event) => {
-        setselectedText(event.target.value);
-    };
+      onFilterChange(updatedFilters);
 
-    console.log("Selected filter :", selectedFilters);
-    console.log("Selected text :", selectedText);
+      return updatedFilters;
+    });
+  };
 
-    return (
-        <div className="tableHead">
-            <div className="searchBarContainer">
-                <input
-                    onChange={handleInputText}
-                    type="text"
-                    placeholder="Search here"
-                    className="searchBar"
-                />
-            </div>
-            <TableHead style={{ display: "flex", alignItems: "center" }}>
-                <Button
-                    onClick={() => handleButtonClick("Baroque")}
-                    className={
-                        selectedFilters.includes("Baroque")
-                            ? "selectedButton"
-                            : ""
-                    }
-                >
-                    Baroque
-                </Button>
-                <Button
-                    onClick={() => handleButtonClick("Renaissance")}
-                    className={
-                        selectedFilters.includes("Renaissance")
-                            ? "selectedButton"
-                            : ""
-                    }
-                >
-                    Renaissance
-                </Button>
-                <Button
-                    onClick={() => handleButtonClick("Peinture")}
-                    className={
-                        selectedFilters.includes("Peinture")
-                            ? "selectedButton"
-                            : ""
-                    }
-                >
-                    Peinture
-                </Button>
-                <Button
-                    onClick={() => handleButtonClick("Sculpture")}
-                    className={
-                        selectedFilters.includes("Sculpture")
-                            ? "selectedButton"
-                            : ""
-                    }
-                >
-                    Sculpture
-                </Button>
-            </TableHead>
-        </div>
-    );
+  const handleInputText = (event) => {
+    setselectedText(event.target.value);
+  };
+
+  console.log("Header", selectedFilters);
+
+  return (
+    <div className="headerContainer">
+      <div className="searchBarContainer">
+        <input
+          onChange={handleInputText}
+          type="text"
+          placeholder="Search here"
+          className="searchBar"
+        />
+      </div>
+      <div className="buttonContainer">
+        <button
+          onClick={() => handleButtonClick("Baroque")}
+          className={
+            selectedFilters.includes("Baroque") ? "selectedButton" : ""
+          }
+        >
+          Baroque
+        </button>
+        <button
+          onClick={() => handleButtonClick("Renaissance")}
+          className={
+            selectedFilters.includes("Renaissance") ? "selectedButton" : ""
+          }
+        >
+          Renaissance
+        </button>
+        <button
+          onClick={() => handleButtonClick("Peinture")}
+          className={
+            selectedFilters.includes("Peinture") ? "selectedButton" : ""
+          }
+        >
+          Peinture
+        </button>
+        <button
+          onClick={() => handleButtonClick("Sculpture")}
+          className={
+            selectedFilters.includes("Sculpture") ? "selectedButton" : ""
+          }
+        >
+          Sculpture
+        </button>
+        <button
+          onClick={() => handleButtonClick("Rococo")}
+          className={selectedFilters.includes("Rococo") ? "selectedButton" : ""}
+        >
+          Rococo
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Header;

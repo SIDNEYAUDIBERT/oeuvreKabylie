@@ -1,80 +1,87 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
-    Audio,
-    Bars,
-    BallTriangle,
-    Oval,
-    MagnifyingGlass,
+  Audio,
+  Bars,
+  BallTriangle,
+  Oval,
+  MagnifyingGlass,
 } from "react-loader-spinner";
 import Oeuvre from "./Oeuvre";
 import data from "../data.json";
 
-const Oeuvres = () => {
-    const [oeuvres, setOeuvres] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+const Oeuvres = ({ selectedFilters }) => {
+  const [oeuvres, setOeuvres] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const defaultOeuvres = {};
+  console.log("Oeuvres", selectedFilters);
 
-                for (const oeuvre of data.oeuvres) {
-                    // Check if the period is already added to the defaultOeuvres
-                    if (!defaultOeuvres[oeuvre.periode]) {
-                        defaultOeuvres[oeuvre.periode] = [];
-                    }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const filteredOeuvres = data.oeuvres.filter((oeuvre) => {
+          // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
+          if (selectedFilters.length === 0) {
+            return true;
+          }
+          // Sinon, vérifier si l'œuvre correspond à au moins un filtre
+          return selectedFilters.includes(oeuvre.periode);
+        });
 
-                    if (defaultOeuvres[oeuvre.periode].length < 3) {
-                        defaultOeuvres[oeuvre.periode].push({ ...oeuvre });
-                    }
-                }
+        // Limiter à 3 œuvres par période
+        const limitedOeuvres = {};
+        filteredOeuvres.forEach((oeuvre) => {
+          if (!limitedOeuvres[oeuvre.periode]) {
+            limitedOeuvres[oeuvre.periode] = [];
+          }
 
-                // Flatten the defaultOeuvres object into an array
-                const flattenedDefaultOeuvres =
-                    Object.values(defaultOeuvres).flat();
+          if (limitedOeuvres[oeuvre.periode].length < 3) {
+            limitedOeuvres[oeuvre.periode].push({ ...oeuvre });
+          }
+        });
 
-                setOeuvres(flattenedDefaultOeuvres);
-                setIsLoading(false);
-            } catch (error) {
-                console.error("Erreur lors du chargement des données:", error);
-            }
-        };
+        // Flatten l'objet en un tableau
+        const flattenedOeuvres = Object.values(limitedOeuvres).flat();
 
-        fetchData();
-    }, []);
+        setOeuvres(flattenedOeuvres);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Erreur lors du chargement des données:", error);
+      }
+    };
 
-    console.log("oeuvres", oeuvres);
+    fetchData();
+  }, [selectedFilters]);
 
-    return (
-        <div className="container">
-            {isLoading && (
-                <MagnifyingGlass
-                    visible={true}
-                    height="100"
-                    width="100"
-                    ariaLabel="magnifying-glass-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="magnifying-glass-wrapper"
-                    glassColor="#c0efff"
-                    color="#e15b64"
-                />
-            )}
+  return (
+    <div className="container">
+      {isLoading && (
+        <MagnifyingGlass
+          visible={true}
+          height="100"
+          width="100"
+          ariaLabel="magnifying-glass-loading"
+          wrapperStyle={{}}
+          wrapperClass="magnifying-glass-wrapper"
+          glassColor="#c0efff"
+          color="#e15b64"
+        />
+      )}
 
-            <div className="oeuvres-container">
-                {oeuvres?.map((oeuvre) => (
-                    <Oeuvre
-                        key={oeuvre.id}
-                        imageSrc={oeuvre.image}
-                        title={oeuvre.titre}
-                        dateCreation={oeuvre.date}
-                        prix={oeuvre.prix}
-                        periode={oeuvre.periode}
-                        id={oeuvre.id}
-                    />
-                ))}
-            </div>
-        </div>
-    );
+      <div className="oeuvres-container">
+        {oeuvres.map((oeuvre) => (
+          <Oeuvre
+            key={oeuvre.id}
+            imageSrc={oeuvre.image}
+            title={oeuvre.titre}
+            dateCreation={oeuvre.date}
+            prix={oeuvre.prix}
+            periode={oeuvre.periode}
+            id={oeuvre.id}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Oeuvres;
