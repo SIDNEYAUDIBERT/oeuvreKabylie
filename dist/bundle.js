@@ -10712,57 +10712,6 @@
 	function _nonIterableRest() {
 	  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 	}
-	function _createForOfIteratorHelper(o, allowArrayLike) {
-	  var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
-	  if (!it) {
-	    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-	      if (it) o = it;
-	      var i = 0;
-	      var F = function () {};
-	      return {
-	        s: F,
-	        n: function () {
-	          if (i >= o.length) return {
-	            done: true
-	          };
-	          return {
-	            done: false,
-	            value: o[i++]
-	          };
-	        },
-	        e: function (e) {
-	          throw e;
-	        },
-	        f: F
-	      };
-	    }
-	    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-	  }
-	  var normalCompletion = true,
-	    didErr = false,
-	    err;
-	  return {
-	    s: function () {
-	      it = it.call(o);
-	    },
-	    n: function () {
-	      var step = it.next();
-	      normalCompletion = step.done;
-	      return step;
-	    },
-	    e: function (e) {
-	      didErr = true;
-	      err = e;
-	    },
-	    f: function () {
-	      try {
-	        if (!normalCompletion && it.return != null) it.return();
-	      } finally {
-	        if (didErr) throw err;
-	      }
-	    }
-	  };
-	}
 	function _toPrimitive(input, hint) {
 	  if (typeof input !== "object" || input === null) return input;
 	  var prim = input[Symbol.toPrimitive];
@@ -13560,14 +13509,14 @@
 	var gt = "__sc-".concat(f, "__");
 	"undefined" != typeof window && (window[gt] || (window[gt] = 0), 1 === window[gt] && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window[gt] += 1);
 
+	const $b2e137848b48cf4f$export$37394b0fa44b998c = "#4fa94d";
 	const $b2e137848b48cf4f$export$6bfda33bcd6c2d18 = {
 	  "aria-busy": true,
 	  role: "progressbar"
 	};
-	(ut).div`
+	const $89448c49d3746db7$export$21d9f1931ef75b56 = (ut).div`
   display: ${props => props.$visible ? "flex" : "none"};
 `;
-	const $6df955197a15d9f8$export$98a285aab16ab26c = "http://www.w3.org/2000/svg";
 	const $c21a6e98dcf01e35$var$len = 242.776657104492;
 	const $c21a6e98dcf01e35$var$time = 1.6;
 	const $c21a6e98dcf01e35$var$anim = (ht)`
@@ -13589,6 +13538,89 @@
   stroke-dashoffset: 0;
   animation: ${$c21a6e98dcf01e35$var$anim} ${$c21a6e98dcf01e35$var$time}s linear infinite;
 `;
+
+	/**
+	 * The radius of the circle
+	 * The Loader size is set with the width and height of the SVG
+	 * @type {number}
+	 */
+	const $bab978db7e7ddb54$var$RADIUS = 20;
+	/**
+	 * Compute Path depending on circle radius
+	 * The structure with radius 20 is "M20 0c0-9.94-8.06-20-20-20"
+	 * @param radius of the circle radius default 20
+	 * @returns {string}
+	 */
+	const $bab978db7e7ddb54$var$getPath = radius => {
+	  return ["M" + radius + " 0c0-9.94-8.06", radius, radius, radius].join("-");
+	};
+	/**
+	 * Compute the size of the view box depending on the radius and Stroke-Width
+	 * @param strokeWidth Stroke-Width of the full circle
+	 * @param secondaryStrokeWidth Stroke-Width of the 1/4 circle
+	 * @param radius radius of the circle
+	 * @returns {string}
+	 */
+	const $bab978db7e7ddb54$var$getViewBoxSize = (strokeWidth, secondaryStrokeWidth, radius) => {
+	  const maxStrokeWidth = Math.max(strokeWidth, secondaryStrokeWidth);
+	  const startingPoint = -radius - maxStrokeWidth / 2 + 1;
+	  const endpoint = radius * 2 + maxStrokeWidth;
+	  return [startingPoint, startingPoint, endpoint, endpoint].join(" ");
+	};
+	const $bab978db7e7ddb54$export$67ad50c48ca3ede4 = ({
+	  height = 80,
+	  width = 80,
+	  color = ($b2e137848b48cf4f$export$37394b0fa44b998c),
+	  secondaryColor = ($b2e137848b48cf4f$export$37394b0fa44b998c),
+	  ariaLabel = "oval-loading",
+	  wrapperStyle: wrapperStyle,
+	  wrapperClass: wrapperClass,
+	  visible = true,
+	  strokeWidth = 2,
+	  strokeWidthSecondary: strokeWidthSecondary
+	}) => /*#__PURE__*/(jsxRuntimeExports.jsx)(($89448c49d3746db7$export$21d9f1931ef75b56), {
+	  style: wrapperStyle,
+	  $visible: visible,
+	  className: wrapperClass,
+	  "data-testid": "oval-loading",
+	  "aria-label": ariaLabel,
+	  ...($b2e137848b48cf4f$export$6bfda33bcd6c2d18),
+	  children: /*#__PURE__*/(jsxRuntimeExports.jsx)("svg", {
+	    width: width,
+	    height: height,
+	    viewBox: $bab978db7e7ddb54$var$getViewBoxSize(Number(strokeWidth), Number(strokeWidthSecondary || strokeWidth), $bab978db7e7ddb54$var$RADIUS),
+	    xmlns: "http://www.w3.org/2000/svg",
+	    stroke: color,
+	    "data-testid": "oval-svg",
+	    children: /*#__PURE__*/(jsxRuntimeExports.jsx)("g", {
+	      fill: "none",
+	      fillRule: "evenodd",
+	      children: /*#__PURE__*/(jsxRuntimeExports.jsxs)("g", {
+	        transform: "translate(1 1)",
+	        strokeWidth: Number(strokeWidthSecondary || strokeWidth),
+	        "data-testid": "oval-secondary-group",
+	        children: [/*#__PURE__*/(jsxRuntimeExports.jsx)("circle", {
+	          strokeOpacity: ".5",
+	          cx: "0",
+	          cy: "0",
+	          r: $bab978db7e7ddb54$var$RADIUS,
+	          stroke: secondaryColor,
+	          strokeWidth: strokeWidth
+	        }), /*#__PURE__*/(jsxRuntimeExports.jsx)("path", {
+	          d: $bab978db7e7ddb54$var$getPath($bab978db7e7ddb54$var$RADIUS),
+	          children: /*#__PURE__*/(jsxRuntimeExports.jsx)("animateTransform", {
+	            attributeName: "transform",
+	            type: "rotate",
+	            from: "0 0 0",
+	            to: "360 0 0",
+	            dur: "1s",
+	            repeatCount: "indefinite"
+	          })
+	        })]
+	      })
+	    })
+	  })
+	});
 	const $580a8839b3aeeb57$var$spin = (ht)`
  to {
     transform: rotate(360deg);
@@ -13660,69 +13692,18 @@
 	(ut).svg`
   transform-origin: 50% 65%;
 `;
-	const $e28c1af960094573$export$bdf537af43a20db5 = ({
-	  visible = true,
-	  height = "80",
-	  width = "80",
-	  wrapperClass = "",
-	  wrapperStyle = {},
-	  ariaLabel = "magnifying-glass-loading",
-	  glassColor = "#c0efff",
-	  color = "#e15b64"
-	}) => {
-	  return !visible ? null : /*#__PURE__*/(jsxRuntimeExports.jsx)("svg", {
-	    width: width,
-	    height: height,
-	    xmlns: ($6df955197a15d9f8$export$98a285aab16ab26c),
-	    viewBox: "0 0 100 100",
-	    preserveAspectRatio: "xMidYMid",
-	    className: wrapperClass,
-	    style: wrapperStyle,
-	    "aria-label": ariaLabel,
-	    "data-testid": "magnifying-glass-svg",
-	    ...($b2e137848b48cf4f$export$6bfda33bcd6c2d18),
-	    children: /*#__PURE__*/(jsxRuntimeExports.jsx)("g", {
-	      transform: "translate(50,50)",
-	      children: /*#__PURE__*/(jsxRuntimeExports.jsx)("g", {
-	        transform: "scale(0.82)",
-	        children: /*#__PURE__*/(jsxRuntimeExports.jsx)("g", {
-	          transform: "translate(-50,-50)",
-	          children: /*#__PURE__*/(jsxRuntimeExports.jsxs)("g", {
-	            transform: "translate(16.3636 -20)",
-	            children: [/*#__PURE__*/(jsxRuntimeExports.jsx)("animateTransform", {
-	              attributeName: "transform",
-	              type: "translate",
-	              calcMode: "linear",
-	              values: "-20 -20;20 -20;0 20;-20 -20",
-	              keyTimes: "0;0.33;0.66;1",
-	              dur: "1s",
-	              begin: "0s",
-	              repeatCount: "indefinite"
-	            }), /*#__PURE__*/(jsxRuntimeExports.jsx)("path", {
-	              d: "M44.19,26.158c-4.817,0-9.345,1.876-12.751,5.282c-3.406,3.406-5.282,7.934-5.282,12.751 c0,4.817,1.876,9.345,5.282,12.751c3.406,3.406,7.934,5.282,12.751,5.282s9.345-1.876,12.751-5.282 c3.406-3.406,5.282-7.934,5.282-12.751c0-4.817-1.876-9.345-5.282-12.751C53.536,28.033,49.007,26.158,44.19,26.158z",
-	              fill: glassColor
-	            }), /*#__PURE__*/(jsxRuntimeExports.jsx)("path", {
-	              d: "M78.712,72.492L67.593,61.373l-3.475-3.475c1.621-2.352,2.779-4.926,3.475-7.596c1.044-4.008,1.044-8.23,0-12.238 c-1.048-4.022-3.146-7.827-6.297-10.979C56.572,22.362,50.381,20,44.19,20C38,20,31.809,22.362,27.085,27.085 c-9.447,9.447-9.447,24.763,0,34.21C31.809,66.019,38,68.381,44.19,68.381c4.798,0,9.593-1.425,13.708-4.262l9.695,9.695 l4.899,4.899C73.351,79.571,74.476,80,75.602,80s2.251-0.429,3.11-1.288C80.429,76.994,80.429,74.209,78.712,72.492z M56.942,56.942 c-3.406,3.406-7.934,5.282-12.751,5.282s-9.345-1.876-12.751-5.282c-3.406-3.406-5.282-7.934-5.282-12.751 c0-4.817,1.876-9.345,5.282-12.751c3.406-3.406,7.934-5.282,12.751-5.282c4.817,0,9.345,1.876,12.751,5.282 c3.406,3.406,5.282,7.934,5.282,12.751C62.223,49.007,60.347,53.536,56.942,56.942z",
-	              fill: color
-	            })]
-	          })
-	        })
-	      })
-	    })
-	  });
-	};
 
 	var Oeuvre = function Oeuvre(_ref) {
 	  var imageSrc = _ref.imageSrc,
 	    title = _ref.title,
 	    dateCreation = _ref.dateCreation,
 	    prix = _ref.prix,
-	    id = _ref.id,
-	    periode = _ref.periode;
+	    periode = _ref.periode,
+	    slugify = _ref.slugify;
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvre-card"
 	  }, /*#__PURE__*/React.createElement(Link, {
-	    to: "/oeuvre/".concat(id),
+	    to: "/oeuvre/".concat(slugify),
 	    className: "custom-link"
 	  }, /*#__PURE__*/React.createElement("img", {
 	    src: imageSrc,
@@ -13744,6 +13725,7 @@
 			prix: 1000000,
 			image: "../images/renaissance/peinture/rp1.jpg",
 			nouveau: true,
+			slugify: "la-joconde",
 			description: "La Joconde, également connue sous le nom de Mona Lisa, est un chef-d'œuvre emblématique de Leonardo da Vinci. Ce portrait énigmatique d'une femme mystérieuse a captivé des générations d'admirateurs par son sourire énigmatique et son regard profond."
 		},
 		{
@@ -13756,6 +13738,7 @@
 			prix: 900000,
 			image: "../images/renaissance/peinture/rp2.jpg",
 			nouveau: false,
+			slugify: "la-naissance-de-venus",
 			description: "La Naissance de Vénus, créée par Sandro Botticelli, est une œuvre emblématique de la Renaissance italienne. Cette peinture mythologique représente la déesse Vénus émergeant de l'océan sur une coquille, entourée de divinités marines et de vents."
 		},
 		{
@@ -13768,6 +13751,7 @@
 			prix: 1200000,
 			image: "../images/renaissance/peinture/rp3.jpg",
 			nouveau: false,
+			slugify: "la-cene",
 			description: "La Cène, une œuvre magistrale de Leonardo da Vinci, représente le dernier repas de Jésus avec ses disciples. Cette fresque emblématique capture l'intensité du moment et la diversité des réactions des apôtres face à l'annonce de la trahison."
 		},
 		{
@@ -13780,6 +13764,7 @@
 			prix: 850000,
 			image: "../images/renaissance/peinture/rp4.jpg",
 			nouveau: false,
+			slugify: "la-primavera",
 			description: "La Primavera, une œuvre gracieuse de Sandro Botticelli, célèbre la beauté et la grâce du printemps. Cette peinture mythologique met en scène un groupe de divinités, avec Vénus au centre, entourées de fleurs et de symboles de renouveau."
 		},
 		{
@@ -13792,6 +13777,7 @@
 			prix: 1100000,
 			image: "../images/renaissance/peinture/rp5.jpg",
 			nouveau: false,
+			slugify: "l-homme-de-vitruve",
 			description: "L'Homme de Vitruve, une étude anatomique de génie par Leonardo da Vinci, explore la proportion idéale du corps humain. Cette œuvre fascinante reflète la quête de compréhension de da Vinci pour l'harmonie entre l'art et la science."
 		},
 		{
@@ -13804,6 +13790,7 @@
 			prix: 800000,
 			image: "../images/renaissance/sculpture/rs1.jpg",
 			nouveau: true,
+			slugify: "david",
 			description: "David, la sculpture magistrale de Michel-Ange, incarne la force et la détermination. Cette représentation du jeune héros biblique David, prêt à affronter Goliath, est un symbole intemporel de courage et de victoire."
 		},
 		{
@@ -13816,6 +13803,7 @@
 			prix: 950000,
 			image: "../images/renaissance/sculpture/rs2.jpg",
 			nouveau: false,
+			slugify: "la-pieta",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13828,6 +13816,7 @@
 			prix: 700000,
 			image: "../images/renaissance/sculpture/rs3.jpg",
 			nouveau: false,
+			slugify: "bacchus",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13840,6 +13829,7 @@
 			prix: 900000,
 			image: "../images/renaissance/sculpture/rs4.jpg",
 			nouveau: false,
+			slugify: "les-esclaves",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13852,6 +13842,7 @@
 			prix: 850000,
 			image: "../images/renaissance/sculpture/rs5.jpg",
 			nouveau: false,
+			slugify: "mercure",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13864,6 +13855,7 @@
 			prix: 1000000,
 			image: "../images/baroque/peinture/bp1.jpg",
 			nouveau: true,
+			slugify: "les-menines",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13876,6 +13868,7 @@
 			prix: 900000,
 			image: "../images/baroque/peinture/bp2.jpg",
 			nouveau: false,
+			slugify: "la-lecon-d-anatomie-du-docteur-tulp",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13888,6 +13881,7 @@
 			prix: 1200000,
 			image: "../images/baroque/peinture/bp3.jpg",
 			nouveau: false,
+			slugify: "la-jeune-fille-a-la-perle",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13900,6 +13894,7 @@
 			prix: 850000,
 			image: "../images/baroque/peinture/bp4.jpg",
 			nouveau: false,
+			slugify: "la-ronde-de-nuit",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13912,6 +13907,7 @@
 			prix: 1100000,
 			image: "../images/baroque/peinture/bp5.jpg",
 			nouveau: false,
+			slugify: "la-laitiere",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13924,6 +13920,7 @@
 			prix: 800000,
 			image: "../images/baroque/sculpture/bs1.jpg",
 			nouveau: true,
+			slugify: "le-bernin",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13936,18 +13933,20 @@
 			prix: 950000,
 			image: "../images/baroque/sculpture/bs2.jpg",
 			nouveau: false,
+			slugify: "le-bernin",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
 			periode: "Baroque",
 			id: "kqopm5a",
 			categories: "s1",
-			titre: "Le Bernin",
-			artiste: "Le Bernin",
+			titre: "Le Berni",
+			artiste: "Le Berni",
 			date: "1622-1625",
 			prix: 700000,
 			image: "../images/baroque/sculpture/bs3.jpg",
 			nouveau: false,
+			slugify: "le-bernin",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13957,8 +13956,10 @@
 			titre: "Le Bernin",
 			artiste: "Le Bernin",
 			date: "1622-1625",
+			prix: 90000,
 			image: "../images/baroque/sculpture/bs4.jpg",
 			nouveau: false,
+			slugify: "le-berni",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13971,6 +13972,7 @@
 			prix: 1200000,
 			image: "../images/rococo/peinture/rp1.jpg",
 			nouveau: true,
+			slugify: "l-escarpolette",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13983,6 +13985,7 @@
 			prix: 900000,
 			image: "../images/rococo/peinture/rp2.jpg",
 			nouveau: false,
+			slugify: "la-lecon-de-musique",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -13995,6 +13998,7 @@
 			prix: 1100000,
 			image: "../images/rococo/peinture/rp3.jpg",
 			nouveau: false,
+			slugify: "le-verrou",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14007,6 +14011,7 @@
 			prix: 950000,
 			image: "../images/rococo/peinture/rp4.jpg",
 			nouveau: false,
+			slugify: "le-retour-de-peche",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14019,6 +14024,7 @@
 			prix: 850000,
 			image: "../images/rococo/peinture/rp5.jpg",
 			nouveau: false,
+			slugify: "l-amour-menacant",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14031,6 +14037,7 @@
 			prix: 950000,
 			image: "../images/rococo/sculpture/rs1.jpg",
 			nouveau: true,
+			slugify: "cupidon-endormi",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14043,6 +14050,7 @@
 			prix: 1200000,
 			image: "../images/rococo/sculpture/rs2.jpg",
 			nouveau: false,
+			slugify: "le-baiser",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14055,6 +14063,7 @@
 			prix: 2000000,
 			image: "../images/rococo/sculpture/rs3.jpg",
 			nouveau: false,
+			slugify: "venus-de-milo",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14067,6 +14076,7 @@
 			prix: 1050000,
 			image: "../images/rococo/sculpture/rs4.jpg",
 			nouveau: false,
+			slugify: "cupidon-et-psyche",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14079,6 +14089,7 @@
 			prix: 1100000,
 			image: "../images/rococo/sculpture/rs5.jpg",
 			nouveau: false,
+			slugify: "amour-captif",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14091,6 +14102,7 @@
 			prix: 1300000,
 			image: "../images/classicisme/peinture/cp1.jpg",
 			nouveau: true,
+			slugify: "le-sacre-de-napoleon",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14103,6 +14115,7 @@
 			prix: 950000,
 			image: "../images/classicisme/peinture/cp2.jpg",
 			nouveau: false,
+			slugify: "portrait-de-madame-recamier",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14115,6 +14128,7 @@
 			prix: 1100000,
 			image: "../images/classicisme/peinture/cp3.jpg",
 			nouveau: false,
+			slugify: "le-serment-des-horaces",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14127,6 +14141,7 @@
 			prix: 1150000,
 			image: "../images/classicisme/peinture/cp4.jpg",
 			nouveau: false,
+			slugify: "la-mort-de-sardanapale",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14139,6 +14154,7 @@
 			prix: 1200000,
 			image: "../images/classicisme/peinture/cp5.jpg",
 			nouveau: false,
+			slugify: "la-liberte-guidant-le-peuple",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14151,6 +14167,7 @@
 			prix: 1000000,
 			image: "../images/classicisme/sculpture/cs1.jpg",
 			nouveau: true,
+			slugify: "le-premier-consul-bonaparte",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14163,6 +14180,7 @@
 			prix: 950000,
 			image: "../images/classicisme/sculpture/cs2.jpg",
 			nouveau: false,
+			slugify: "apollon-et-daphne",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14175,6 +14193,7 @@
 			prix: 1100000,
 			image: "../images/classicisme/sculpture/cs3.jpg",
 			nouveau: false,
+			slugify: "psyche-revived-by-cupid-s-kiss",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14187,6 +14206,7 @@
 			prix: 1200000,
 			image: "../images/classicisme/sculpture/cs4.jpg",
 			nouveau: false,
+			slugify: "la-victoire-de-samothrace",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		},
 		{
@@ -14199,6 +14219,7 @@
 			prix: 1250000,
 			image: "../images/classicisme/sculpture/cs5.jpg",
 			nouveau: false,
+			slugify: "laocoon-et-ses-fils",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
 		}
 	];
@@ -14264,15 +14285,17 @@
 	  }, [selectedFilters]);
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "container"
-	  }, isLoading && /*#__PURE__*/React.createElement($e28c1af960094573$export$bdf537af43a20db5, {
+	  }, isLoading && /*#__PURE__*/React.createElement($bab978db7e7ddb54$export$67ad50c48ca3ede4, {
 	    visible: true,
 	    height: "100",
 	    width: "100",
-	    ariaLabel: "magnifying-glass-loading",
-	    wrapperStyle: {},
+	    ariaLabel: "oval-loading",
+	    wrapperStyle: {
+	      margin: "200px"
+	    },
 	    wrapperClass: "magnifying-glass-wrapper",
-	    glassColor: "#c0efff",
-	    color: "#e15b64"
+	    glassColor: "#aca5a5",
+	    color: "black"
 	  }), /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvres-container"
 	  }, oeuvres.map(function (oeuvre) {
@@ -14283,7 +14306,8 @@
 	      dateCreation: oeuvre.date,
 	      prix: oeuvre.prix,
 	      periode: oeuvre.periode,
-	      id: oeuvre.id
+	      id: oeuvre.id,
+	      slugify: oeuvre.slugify
 	    });
 	  })));
 	};
@@ -19228,7 +19252,6 @@
 
 	var Carousel = function Carousel(_ref) {
 	  var oeuvres = _ref.oeuvres;
-	  console.log("Oevres :", oeuvres);
 	  var CustomNextArrow = function CustomNextArrow(props) {
 	    return /*#__PURE__*/React.createElement("div", _extends$3({}, props, {
 	      className: "custom-next-arrow"
@@ -19262,7 +19285,8 @@
 	      dateCreation: oeuvre.date,
 	      prix: oeuvre.prix,
 	      periode: oeuvre.periode,
-	      id: oeuvre.id
+	      id: oeuvre.id,
+	      slugify: oeuvre.slugify
 	    }));
 	  })));
 	};
@@ -19277,71 +19301,57 @@
 	    similarOeuvres = _useState4[0],
 	    setSimilarOeuvres = _useState4[1];
 	  var _useParams = useParams(),
-	    id = _useParams.id;
-	  console.log("id", id);
+	    slugify = _useParams.slugify;
+	  console.log("param:", slugify);
 	  reactExports.useEffect(function () {
-	    var fetchOeuvreAndSimilar = function fetchOeuvreAndSimilar(id) {
+	    var fetchOeuvreAndSimilar = function fetchOeuvreAndSimilar(slugify) {
 	      var foundOeuvre = null;
 	      var similarOeuvres = [];
-	      var _iterator = _createForOfIteratorHelper(data.oeuvres),
-	        _step;
-	      try {
-	        var _loop = function _loop() {
-	          var periode = _step.value;
-	          var nom = periode.periode,
-	            oeuvres = periode.oeuvres;
 
-	          // Utilize the find function to find the corresponding artwork by id
-	          var found = data.oeuvres.find(function (oeuvre) {
-	            return oeuvre.id === id;
-	          });
-	          if (found) {
-	            foundOeuvre = _objectSpread2(_objectSpread2({}, found), {}, {
-	              periode: nom
-	            });
+	      // Utilize the find function to find the corresponding artwork by slugify
+	      var found = data.oeuvres.find(function (oeuvre) {
+	        return oeuvre.slugify === slugify;
+	      });
+	      if (found) {
+	        foundOeuvre = _objectSpread2(_objectSpread2({}, found), {}, {
+	          periode: found.periode
+	        });
 
-	            // Utilize filter to get similar artworks
-	            similarOeuvres = data.oeuvres.filter(function (oeuvre) {
-	              return oeuvre.categories === found.categories && oeuvre.id !== id;
-	            }).map(function (_ref) {
-	              var id = _ref.id,
-	                titre = _ref.titre,
-	                artiste = _ref.artiste,
-	                image = _ref.image,
-	                prix = _ref.prix,
-	                date = _ref.date;
-	              return {
-	                id: id,
-	                titre: titre,
-	                artiste: artiste,
-	                image: image,
-	                date: date,
-	                prix: prix
-	              };
-	            });
-	          }
-	        };
-	        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-	          _loop();
-	        }
-	      } catch (err) {
-	        _iterator.e(err);
-	      } finally {
-	        _iterator.f();
+	        // Utilize filter to get similar artworks
+	        similarOeuvres = data.oeuvres.filter(function (otherOeuvre) {
+	          return otherOeuvre.categories === found.categories && otherOeuvre.periode === found.periode && otherOeuvre.slugify !== found.slugify;
+	        }).map(function (_ref) {
+	          var id = _ref.id,
+	            titre = _ref.titre,
+	            artiste = _ref.artiste,
+	            image = _ref.image,
+	            prix = _ref.prix,
+	            date = _ref.date,
+	            slugify = _ref.slugify;
+	          return {
+	            id: id,
+	            titre: titre,
+	            artiste: artiste,
+	            image: image,
+	            slugify: slugify,
+	            date: date,
+	            prix: prix
+	          };
+	        });
 	      }
 	      return {
 	        foundOeuvre: foundOeuvre,
 	        similarOeuvres: similarOeuvres
 	      };
 	    };
-	    var _fetchOeuvreAndSimila = fetchOeuvreAndSimilar(id),
+	    var _fetchOeuvreAndSimila = fetchOeuvreAndSimilar(slugify),
 	      foundOeuvre = _fetchOeuvreAndSimila.foundOeuvre,
 	      similarOeuvres = _fetchOeuvreAndSimila.similarOeuvres;
 	    setOeuvre(foundOeuvre);
 	    setSimilarOeuvres(similarOeuvres);
-	  }, [id]);
-	  console.log(oeuvre);
-	  console.log(similarOeuvres);
+	  }, [slugify]);
+	  console.log("oeuvres:", oeuvre);
+	  console.log("similaireOeuvres:", similarOeuvres);
 	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
 	    className: "containerOeuvre"
 	  }, /*#__PURE__*/React.createElement("div", {
@@ -19404,7 +19414,7 @@
 	    path: "/",
 	    element: /*#__PURE__*/React.createElement(Accueil, null)
 	  }), /*#__PURE__*/React.createElement(Route, {
-	    path: "/oeuvre/:id",
+	    path: "/oeuvre/:slugify",
 	    element: /*#__PURE__*/React.createElement(SingleOeuvrePage, null)
 	  })));
 	}
