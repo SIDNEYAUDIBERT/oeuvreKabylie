@@ -1,6 +1,10 @@
 $font-family: cursive;
 $primary-color: #3f3e3e;
 
+body {
+    overflow-x: hidden;
+  }
+
 .oeuvre-card {
     border: 1px solid #ddd;
     margin: 16px;

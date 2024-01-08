@@ -6,54 +6,50 @@ import Carousel from "./Carousel";
 const SingleOeuvrePage = () => {
     const [oeuvre, setOeuvre] = useState(null);
     const [similarOeuvres, setSimilarOeuvres] = useState([]);
-    const { id } = useParams();
+    const { slugify } = useParams();
 
-    console.log("id", id);
+
 
     useEffect(() => {
-        const fetchOeuvreAndSimilar = (id) => {
+        
+        const fetchOeuvreAndSimilar = (slugify) => {
             let foundOeuvre = null;
             let similarOeuvres = [];
-
-            for (const periode of data.oeuvres) {
-                const { periode: nom, oeuvres } = periode;
-
-                // Utilize the find function to find the corresponding artwork by id
-                const found = data.oeuvres.find((oeuvre) => oeuvre.id === id);
-
-                if (found) {
-                    foundOeuvre = { ...found, periode: nom };
-
-                    // Utilize filter to get similar artworks
-                    similarOeuvres = data.oeuvres
-                        .filter(
-                            (oeuvre) =>
-                                oeuvre.categories === found.categories &&
-                                oeuvre.id !== id
-                        )
-                        .map(({ id, titre, artiste, image, prix, date }) => ({
-                            id,
-                            titre,
-                            artiste,
-                            image,
-                            date,
-                            prix
-                        }));
-                }
+    
+            // Utilize the find function to find the corresponding artwork by slugify
+            const found = data.oeuvres.find((oeuvre) => oeuvre.slugify === slugify);
+    
+            if (found) {
+                foundOeuvre = { ...found, periode: found.periode };
+    
+                // Utilize filter to get similar artworks
+                similarOeuvres = data.oeuvres
+                    .filter(
+                        (otherOeuvre) =>
+                            otherOeuvre.categories === found.categories &&
+                            otherOeuvre.periode === found.periode &&
+                            otherOeuvre.slugify !== found.slugify
+                    )
+                    .map(({ id, titre, artiste, image, prix, date,slugify }) => ({
+                        id,
+                        titre,
+                        artiste,
+                        image,
+                        slugify,
+                        date,
+                        prix
+                    }));
             }
-
             return { foundOeuvre, similarOeuvres };
         };
-
-        const { foundOeuvre, similarOeuvres } = fetchOeuvreAndSimilar(id);
-
+    
+        const { foundOeuvre, similarOeuvres } = fetchOeuvreAndSimilar(slugify);
+    
         setOeuvre(foundOeuvre);
         setSimilarOeuvres(similarOeuvres);
-    }, [id]);
+    }, [slugify]);
 
-    console.log(oeuvre);
-    console.log(similarOeuvres);
-
+  
     return (
         <div>
             <div className="containerOeuvre">

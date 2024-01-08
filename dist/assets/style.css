@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body {
+  overflow-x: hidden;
+}
+
 .oeuvre-card {
   border: 1px solid #ddd;
   margin: 16px;

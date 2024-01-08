@@ -8,10 +8,6 @@ import Oeuvre from "./Oeuvre";
 
 const Carousel = ({oeuvres}) => {
 
-  
-    console.log("Oevres :",oeuvres)
-
-
     const CustomNextArrow = (props) => (
         <div {...props} className="custom-next-arrow">
             <ChevronRight />
@@ -23,6 +19,7 @@ const Carousel = ({oeuvres}) => {
             <ChevronLeft  />
         </div>
     );
+    
     const settings = {
         dots: true,
         infinite: true,
@@ -46,6 +43,7 @@ const Carousel = ({oeuvres}) => {
                         prix={oeuvre.prix}
                         periode={oeuvre.periode}
                         id={oeuvre.id}
+                        slugify={oeuvre.slugify}
                     />
                     </div>
                 ))}
