@@ -2,19 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Oval } from "react-loader-spinner";
 import Oeuvre from "./Oeuvre";
 import data from "../data.json";
+import { useParams } from "react-router-dom";
 
-const Oeuvres = ({ selectedFilters }) => {
+
+
+const Oeuvres = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { selectedFilters } = useParams();
 
-  console.log("Oeuvres", selectedFilters);
+  console.log("selectedFilters:", selectedFilters);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const filteredOeuvres = data.oeuvres.filter((oeuvre) => {
           // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
-          if (selectedFilters.length === 0) {
+          if (selectedFilters === undefined) {
             return true;
           }
           // Sinon, vérifier si l'œuvre correspond à au moins un filtre

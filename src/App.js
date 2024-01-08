@@ -10,7 +10,7 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<Accueil />} />
-        <Route exact path="/:filter" element={<Accueil />} />
+        <Route exact path="/:selectedFilters" element={<Accueil />} />
         <Route path="/oeuvre/:slugify" element={<SingleOeuvrePage />} />
       </Routes>
     </div>

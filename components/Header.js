@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Search } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 const FilterButton = ({ filterName, selectedFilters, onClick }) => (
-  <button
-    onClick={() => onClick(filterName)}
-    className={selectedFilters.includes(filterName) ? "selectedButton" : ""}
-  >
-    {filterName}
-  </button>
+  <Link to={`/${filterName}`}>
+    <button
+      onClick={() => onClick(filterName)}
+      className={selectedFilters.includes(filterName) ? "selectedButton" : ""}
+    >
+      {filterName}
+    </button>
+  </Link>
 );
-
 const Header = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [selectedText, setSelectedText] = useState("");

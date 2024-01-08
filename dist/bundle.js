@@ -14227,8 +14227,7 @@
 		oeuvres: oeuvres
 	};
 
-	var Oeuvres = function Oeuvres(_ref) {
-	  var selectedFilters = _ref.selectedFilters;
+	var Oeuvres = function Oeuvres() {
 	  var _useState = reactExports.useState([]),
 	    _useState2 = _slicedToArray(_useState, 2),
 	    oeuvres = _useState2[0],
@@ -14237,10 +14236,12 @@
 	    _useState4 = _slicedToArray(_useState3, 2),
 	    isLoading = _useState4[0],
 	    setIsLoading = _useState4[1];
-	  console.log("Oeuvres", selectedFilters);
+	  var _useParams = useParams(),
+	    selectedFilters = _useParams.selectedFilters;
+	  console.log("selectedFilters:", selectedFilters);
 	  reactExports.useEffect(function () {
 	    var fetchData = /*#__PURE__*/function () {
-	      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+	      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
 	        var filteredOeuvres, limitedOeuvres, flattenedOeuvres;
 	        return _regeneratorRuntime().wrap(function _callee$(_context) {
 	          while (1) switch (_context.prev = _context.next) {
@@ -14248,7 +14249,7 @@
 	              try {
 	                filteredOeuvres = data.oeuvres.filter(function (oeuvre) {
 	                  // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
-	                  if (selectedFilters.length === 0) {
+	                  if (selectedFilters === undefined) {
 	                    return true;
 	                  }
 	                  // Sinon, vérifier si l'œuvre correspond à au moins un filtre
@@ -14278,7 +14279,7 @@
 	        }, _callee);
 	      }));
 	      return function fetchData() {
-	        return _ref2.apply(this, arguments);
+	        return _ref.apply(this, arguments);
 	      };
 	    }();
 	    fetchData();
@@ -14403,12 +14404,14 @@
 	  var filterName = _ref.filterName,
 	    selectedFilters = _ref.selectedFilters,
 	    _onClick = _ref.onClick;
-	  return /*#__PURE__*/React.createElement("button", {
+	  return /*#__PURE__*/React.createElement(Link, {
+	    to: "/".concat(filterName)
+	  }, /*#__PURE__*/React.createElement("button", {
 	    onClick: function onClick() {
 	      return _onClick(filterName);
 	    },
 	    className: selectedFilters.includes(filterName) ? "selectedButton" : ""
-	  }, filterName);
+	  }, filterName));
 	};
 	var Header = function Header(_ref2) {
 	  var onFilterChange = _ref2.onFilterChange;
@@ -19431,7 +19434,7 @@
 	    element: /*#__PURE__*/React.createElement(Accueil, null)
 	  }), /*#__PURE__*/React.createElement(Route, {
 	    exact: true,
-	    path: "/:filter",
+	    path: "/:selectedFilters",
 	    element: /*#__PURE__*/React.createElement(Accueil, null)
 	  }), /*#__PURE__*/React.createElement(Route, {
 	    path: "/oeuvre/:slugify",
