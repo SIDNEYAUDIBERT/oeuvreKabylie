@@ -1,26 +1,39 @@
 import React, { useState } from "react";
+import { Search } from 'lucide-react';
+
+const FilterButton = ({ filterName, selectedFilters, onClick }) => (
+  <button
+    onClick={() => onClick(filterName)}
+    className={selectedFilters.includes(filterName) ? "selectedButton" : ""}
+  >
+    {filterName}
+  </button>
+);
 
 const Header = ({ onFilterChange }) => {
-  const [selectedFilters, setselectedFilters] = useState([]);
-  const [selectedText, setselectedText] = useState("");
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedText, setSelectedText] = useState("");
 
   const handleButtonClick = (filterName) => {
-    setselectedFilters((prevFilters) => {
-      const updatedFilters = prevFilters.includes(filterName)
-        ? prevFilters.filter((filter) => filter !== filterName)
-        : [...prevFilters, filterName];
+    const updatedFilters = selectedFilters.includes(filterName)
+      ? selectedFilters.filter((filter) => filter !== filterName)
+      : [...selectedFilters, filterName];
 
-      onFilterChange(updatedFilters);
+    setSelectedFilters(updatedFilters);
+    onFilterChange(updatedFilters);
+  };
 
-      return updatedFilters;
-    });
+  const handleSearch = () => {
+    // Logique de recherche à implémenter
   };
 
   const handleInputText = (event) => {
-    setselectedText(event.target.value);
+    setSelectedText(event.target.value);
   };
 
   console.log("Header", selectedFilters);
+
+  const filters = ["Baroque", "Renaissance","Rococo","Classicisme","Peinture", "Sculpture"];
 
   return (
     <div className="headerContainer">
@@ -31,46 +44,19 @@ const Header = ({ onFilterChange }) => {
           placeholder="Search here"
           className="searchBar"
         />
+        <div className="iconeContainer">
+          <Search className="icone" onClick={handleSearch} />
+        </div>
       </div>
       <div className="buttonContainer">
-        <button
-          onClick={() => handleButtonClick("Baroque")}
-          className={
-            selectedFilters.includes("Baroque") ? "selectedButton" : ""
-          }
-        >
-          Baroque
-        </button>
-        <button
-          onClick={() => handleButtonClick("Renaissance")}
-          className={
-            selectedFilters.includes("Renaissance") ? "selectedButton" : ""
-          }
-        >
-          Renaissance
-        </button>
-        <button
-          onClick={() => handleButtonClick("Peinture")}
-          className={
-            selectedFilters.includes("Peinture") ? "selectedButton" : ""
-          }
-        >
-          Peinture
-        </button>
-        <button
-          onClick={() => handleButtonClick("Sculpture")}
-          className={
-            selectedFilters.includes("Sculpture") ? "selectedButton" : ""
-          }
-        >
-          Sculpture
-        </button>
-        <button
-          onClick={() => handleButtonClick("Rococo")}
-          className={selectedFilters.includes("Rococo") ? "selectedButton" : ""}
-        >
-          Rococo
-        </button>
+        {filters.map((filter) => (
+          <FilterButton
+            key={filter}
+            filterName={filter}
+            selectedFilters={selectedFilters}
+            onClick={handleButtonClick}
+          />
+        ))}
       </div>
     </div>
   );

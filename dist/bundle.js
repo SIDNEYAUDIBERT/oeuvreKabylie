@@ -14312,29 +14312,129 @@
 	  })));
 	};
 
-	var Header = function Header(_ref) {
-	  var onFilterChange = _ref.onFilterChange;
+	/**
+	 * @license lucide-react v0.298.0 - ISC
+	 *
+	 * This source code is licensed under the ISC license.
+	 * See the LICENSE file in the root directory of this source tree.
+	 */
+
+	var defaultAttributes = {
+	  xmlns: "http://www.w3.org/2000/svg",
+	  width: 24,
+	  height: 24,
+	  viewBox: "0 0 24 24",
+	  fill: "none",
+	  stroke: "currentColor",
+	  strokeWidth: 2,
+	  strokeLinecap: "round",
+	  strokeLinejoin: "round"
+	};
+
+	/**
+	 * @license lucide-react v0.298.0 - ISC
+	 *
+	 * This source code is licensed under the ISC license.
+	 * See the LICENSE file in the root directory of this source tree.
+	 */
+	const toKebabCase = string => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase().trim();
+	const createLucideIcon = (iconName, iconNode) => {
+	  const Component = /*#__PURE__*/reactExports.forwardRef(({
+	    color = "currentColor",
+	    size = 24,
+	    strokeWidth = 2,
+	    absoluteStrokeWidth,
+	    className = "",
+	    children,
+	    ...rest
+	  }, ref) => /*#__PURE__*/reactExports.createElement("svg", {
+	    ref,
+	    ...defaultAttributes,
+	    width: size,
+	    height: size,
+	    stroke: color,
+	    strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+	    className: ["lucide", `lucide-${toKebabCase(iconName)}`, className].join(" "),
+	    ...rest
+	  }, [...iconNode.map(([tag, attrs]) => /*#__PURE__*/reactExports.createElement(tag, attrs)), ...(Array.isArray(children) ? children : [children])]));
+	  Component.displayName = `${iconName}`;
+	  return Component;
+	};
+
+	/**
+	 * @license lucide-react v0.298.0 - ISC
+	 *
+	 * This source code is licensed under the ISC license.
+	 * See the LICENSE file in the root directory of this source tree.
+	 */
+	const ChevronLeft = createLucideIcon("ChevronLeft", [["path", {
+	  d: "m15 18-6-6 6-6",
+	  key: "1wnfg3"
+	}]]);
+
+	/**
+	 * @license lucide-react v0.298.0 - ISC
+	 *
+	 * This source code is licensed under the ISC license.
+	 * See the LICENSE file in the root directory of this source tree.
+	 */
+	const ChevronRight = createLucideIcon("ChevronRight", [["path", {
+	  d: "m9 18 6-6-6-6",
+	  key: "mthhwq"
+	}]]);
+
+	/**
+	 * @license lucide-react v0.298.0 - ISC
+	 *
+	 * This source code is licensed under the ISC license.
+	 * See the LICENSE file in the root directory of this source tree.
+	 */
+	const Search = createLucideIcon("Search", [["circle", {
+	  cx: "11",
+	  cy: "11",
+	  r: "8",
+	  key: "4ej97u"
+	}], ["path", {
+	  d: "m21 21-4.3-4.3",
+	  key: "1qie3q"
+	}]]);
+
+	var FilterButton = function FilterButton(_ref) {
+	  var filterName = _ref.filterName,
+	    selectedFilters = _ref.selectedFilters,
+	    _onClick = _ref.onClick;
+	  return /*#__PURE__*/React.createElement("button", {
+	    onClick: function onClick() {
+	      return _onClick(filterName);
+	    },
+	    className: selectedFilters.includes(filterName) ? "selectedButton" : ""
+	  }, filterName);
+	};
+	var Header = function Header(_ref2) {
+	  var onFilterChange = _ref2.onFilterChange;
 	  var _useState = reactExports.useState([]),
 	    _useState2 = _slicedToArray(_useState, 2),
 	    selectedFilters = _useState2[0],
-	    setselectedFilters = _useState2[1];
+	    setSelectedFilters = _useState2[1];
 	  var _useState3 = reactExports.useState(""),
 	    _useState4 = _slicedToArray(_useState3, 2);
 	    _useState4[0];
-	    var setselectedText = _useState4[1];
+	    var setSelectedText = _useState4[1];
 	  var handleButtonClick = function handleButtonClick(filterName) {
-	    setselectedFilters(function (prevFilters) {
-	      var updatedFilters = prevFilters.includes(filterName) ? prevFilters.filter(function (filter) {
-	        return filter !== filterName;
-	      }) : [].concat(_toConsumableArray(prevFilters), [filterName]);
-	      onFilterChange(updatedFilters);
-	      return updatedFilters;
-	    });
+	    var updatedFilters = selectedFilters.includes(filterName) ? selectedFilters.filter(function (filter) {
+	      return filter !== filterName;
+	    }) : [].concat(_toConsumableArray(selectedFilters), [filterName]);
+	    setSelectedFilters(updatedFilters);
+	    onFilterChange(updatedFilters);
+	  };
+	  var handleSearch = function handleSearch() {
+	    // Logique de recherche à implémenter
 	  };
 	  var handleInputText = function handleInputText(event) {
-	    setselectedText(event.target.value);
+	    setSelectedText(event.target.value);
 	  };
 	  console.log("Header", selectedFilters);
+	  var filters = ["Baroque", "Renaissance", "Rococo", "Classicisme", "Peinture", "Sculpture"];
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "headerContainer"
 	  }, /*#__PURE__*/React.createElement("div", {
@@ -14344,34 +14444,21 @@
 	    type: "text",
 	    placeholder: "Search here",
 	    className: "searchBar"
-	  })), /*#__PURE__*/React.createElement("div", {
+	  }), /*#__PURE__*/React.createElement("div", {
+	    className: "iconeContainer"
+	  }, /*#__PURE__*/React.createElement(Search, {
+	    className: "icone",
+	    onClick: handleSearch
+	  }))), /*#__PURE__*/React.createElement("div", {
 	    className: "buttonContainer"
-	  }, /*#__PURE__*/React.createElement("button", {
-	    onClick: function onClick() {
-	      return handleButtonClick("Baroque");
-	    },
-	    className: selectedFilters.includes("Baroque") ? "selectedButton" : ""
-	  }, "Baroque"), /*#__PURE__*/React.createElement("button", {
-	    onClick: function onClick() {
-	      return handleButtonClick("Renaissance");
-	    },
-	    className: selectedFilters.includes("Renaissance") ? "selectedButton" : ""
-	  }, "Renaissance"), /*#__PURE__*/React.createElement("button", {
-	    onClick: function onClick() {
-	      return handleButtonClick("Peinture");
-	    },
-	    className: selectedFilters.includes("Peinture") ? "selectedButton" : ""
-	  }, "Peinture"), /*#__PURE__*/React.createElement("button", {
-	    onClick: function onClick() {
-	      return handleButtonClick("Sculpture");
-	    },
-	    className: selectedFilters.includes("Sculpture") ? "selectedButton" : ""
-	  }, "Sculpture"), /*#__PURE__*/React.createElement("button", {
-	    onClick: function onClick() {
-	      return handleButtonClick("Rococo");
-	    },
-	    className: selectedFilters.includes("Rococo") ? "selectedButton" : ""
-	  }, "Rococo")));
+	  }, filters.map(function (filter) {
+	    return /*#__PURE__*/React.createElement(FilterButton, {
+	      key: filter,
+	      filterName: filter,
+	      selectedFilters: selectedFilters,
+	      onClick: handleButtonClick
+	    });
+	  })));
 	};
 
 	var Accueil = function Accueil() {
@@ -19179,77 +19266,6 @@
 
 	var Slider = /*@__PURE__*/getDefaultExportFromCjs(lib);
 
-	/**
-	 * @license lucide-react v0.298.0 - ISC
-	 *
-	 * This source code is licensed under the ISC license.
-	 * See the LICENSE file in the root directory of this source tree.
-	 */
-
-	var defaultAttributes = {
-	  xmlns: "http://www.w3.org/2000/svg",
-	  width: 24,
-	  height: 24,
-	  viewBox: "0 0 24 24",
-	  fill: "none",
-	  stroke: "currentColor",
-	  strokeWidth: 2,
-	  strokeLinecap: "round",
-	  strokeLinejoin: "round"
-	};
-
-	/**
-	 * @license lucide-react v0.298.0 - ISC
-	 *
-	 * This source code is licensed under the ISC license.
-	 * See the LICENSE file in the root directory of this source tree.
-	 */
-	const toKebabCase = string => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase().trim();
-	const createLucideIcon = (iconName, iconNode) => {
-	  const Component = /*#__PURE__*/reactExports.forwardRef(({
-	    color = "currentColor",
-	    size = 24,
-	    strokeWidth = 2,
-	    absoluteStrokeWidth,
-	    className = "",
-	    children,
-	    ...rest
-	  }, ref) => /*#__PURE__*/reactExports.createElement("svg", {
-	    ref,
-	    ...defaultAttributes,
-	    width: size,
-	    height: size,
-	    stroke: color,
-	    strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
-	    className: ["lucide", `lucide-${toKebabCase(iconName)}`, className].join(" "),
-	    ...rest
-	  }, [...iconNode.map(([tag, attrs]) => /*#__PURE__*/reactExports.createElement(tag, attrs)), ...(Array.isArray(children) ? children : [children])]));
-	  Component.displayName = `${iconName}`;
-	  return Component;
-	};
-
-	/**
-	 * @license lucide-react v0.298.0 - ISC
-	 *
-	 * This source code is licensed under the ISC license.
-	 * See the LICENSE file in the root directory of this source tree.
-	 */
-	const ChevronLeft = createLucideIcon("ChevronLeft", [["path", {
-	  d: "m15 18-6-6 6-6",
-	  key: "1wnfg3"
-	}]]);
-
-	/**
-	 * @license lucide-react v0.298.0 - ISC
-	 *
-	 * This source code is licensed under the ISC license.
-	 * See the LICENSE file in the root directory of this source tree.
-	 */
-	const ChevronRight = createLucideIcon("ChevronRight", [["path", {
-	  d: "m9 18 6-6-6-6",
-	  key: "mthhwq"
-	}]]);
-
 	var Carousel = function Carousel(_ref) {
 	  var oeuvres = _ref.oeuvres;
 	  var CustomNextArrow = function CustomNextArrow(props) {
@@ -19412,6 +19428,10 @@
 	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Routes, null, /*#__PURE__*/React.createElement(Route, {
 	    exact: true,
 	    path: "/",
+	    element: /*#__PURE__*/React.createElement(Accueil, null)
+	  }), /*#__PURE__*/React.createElement(Route, {
+	    exact: true,
+	    path: "/:filter",
 	    element: /*#__PURE__*/React.createElement(Accueil, null)
 	  }), /*#__PURE__*/React.createElement(Route, {
 	    path: "/oeuvre/:slugify",
