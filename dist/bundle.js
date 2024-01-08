@@ -10681,8 +10681,17 @@
 	function _slicedToArray(arr, i) {
 	  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 	}
+	function _toConsumableArray(arr) {
+	  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+	}
+	function _arrayWithoutHoles(arr) {
+	  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+	}
 	function _arrayWithHoles(arr) {
 	  if (Array.isArray(arr)) return arr;
+	}
+	function _iterableToArray(iter) {
+	  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 	}
 	function _unsupportedIterableToArray(o, minLen) {
 	  if (!o) return;
@@ -10696,6 +10705,9 @@
 	  if (len == null || len > arr.length) len = arr.length;
 	  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
 	  return arr2;
+	}
+	function _nonIterableSpread() {
+	  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 	}
 	function _nonIterableRest() {
 	  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
@@ -13705,7 +13717,8 @@
 	    title = _ref.title,
 	    dateCreation = _ref.dateCreation,
 	    prix = _ref.prix,
-	    id = _ref.id;
+	    id = _ref.id,
+	    periode = _ref.periode;
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvre-card"
 	  }, /*#__PURE__*/React.createElement(Link, {
@@ -13717,7 +13730,7 @@
 	    className: "oeuvre-image"
 	  }), /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvre-details"
-	  }, /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("p", null, "Date de cr\xE9ation : ", dateCreation), /*#__PURE__*/React.createElement("p", null, "Prix : ", prix))));
+	  }, /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("p", null, "Date de cr\xE9ation : ", dateCreation), /*#__PURE__*/React.createElement("p", null, "Prix : ", prix), /*#__PURE__*/React.createElement("p", null, "P\xE9riode : ", periode))));
 	};
 
 	var oeuvres = [
@@ -14193,7 +14206,8 @@
 		oeuvres: oeuvres
 	};
 
-	var Oeuvres = function Oeuvres() {
+	var Oeuvres = function Oeuvres(_ref) {
+	  var selectedFilters = _ref.selectedFilters;
 	  var _useState = reactExports.useState([]),
 	    _useState2 = _slicedToArray(_useState, 2),
 	    oeuvres = _useState2[0],
@@ -14202,36 +14216,36 @@
 	    _useState4 = _slicedToArray(_useState3, 2),
 	    isLoading = _useState4[0],
 	    setIsLoading = _useState4[1];
+	  console.log("Oeuvres", selectedFilters);
 	  reactExports.useEffect(function () {
 	    var fetchData = /*#__PURE__*/function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-	        var defaultOeuvres, _iterator, _step, oeuvre, flattenedDefaultOeuvres;
+	      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+	        var filteredOeuvres, limitedOeuvres, flattenedOeuvres;
 	        return _regeneratorRuntime().wrap(function _callee$(_context) {
 	          while (1) switch (_context.prev = _context.next) {
 	            case 0:
 	              try {
-	                defaultOeuvres = {};
-	                _iterator = _createForOfIteratorHelper(data.oeuvres);
-	                try {
-	                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-	                    oeuvre = _step.value;
-	                    // Check if the period is already added to the defaultOeuvres
-	                    if (!defaultOeuvres[oeuvre.periode]) {
-	                      defaultOeuvres[oeuvre.periode] = [];
-	                    }
-	                    if (defaultOeuvres[oeuvre.periode].length < 3) {
-	                      defaultOeuvres[oeuvre.periode].push(_objectSpread2({}, oeuvre));
-	                    }
+	                filteredOeuvres = data.oeuvres.filter(function (oeuvre) {
+	                  // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
+	                  if (selectedFilters.length === 0) {
+	                    return true;
 	                  }
+	                  // Sinon, vérifier si l'œuvre correspond à au moins un filtre
+	                  return selectedFilters.includes(oeuvre.periode);
+	                }); // Limiter à 3 œuvres par période
+	                limitedOeuvres = {};
+	                filteredOeuvres.forEach(function (oeuvre) {
+	                  if (!limitedOeuvres[oeuvre.periode]) {
+	                    limitedOeuvres[oeuvre.periode] = [];
+	                  }
+	                  if (limitedOeuvres[oeuvre.periode].length < 3) {
+	                    limitedOeuvres[oeuvre.periode].push(_objectSpread2({}, oeuvre));
+	                  }
+	                });
 
-	                  // Flatten the defaultOeuvres object into an array
-	                } catch (err) {
-	                  _iterator.e(err);
-	                } finally {
-	                  _iterator.f();
-	                }
-	                flattenedDefaultOeuvres = Object.values(defaultOeuvres).flat();
-	                setOeuvres(flattenedDefaultOeuvres);
+	                // Flatten l'objet en un tableau
+	                flattenedOeuvres = Object.values(limitedOeuvres).flat();
+	                setOeuvres(flattenedOeuvres);
 	                setIsLoading(false);
 	              } catch (error) {
 	                console.error("Erreur lors du chargement des données:", error);
@@ -14243,12 +14257,11 @@
 	        }, _callee);
 	      }));
 	      return function fetchData() {
-	        return _ref.apply(this, arguments);
+	        return _ref2.apply(this, arguments);
 	      };
 	    }();
 	    fetchData();
-	  }, []);
-	  console.log("oeuvres", oeuvres);
+	  }, [selectedFilters]);
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "container"
 	  }, isLoading && /*#__PURE__*/React.createElement($e28c1af960094573$export$bdf537af43a20db5, {
@@ -14262,7 +14275,7 @@
 	    color: "#e15b64"
 	  }), /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvres-container"
-	  }, oeuvres === null || oeuvres === void 0 ? void 0 : oeuvres.map(function (oeuvre) {
+	  }, oeuvres.map(function (oeuvre) {
 	    return /*#__PURE__*/React.createElement(Oeuvre, {
 	      key: oeuvre.id,
 	      imageSrc: oeuvre.image,
@@ -14275,8 +14288,81 @@
 	  })));
 	};
 
+	var Header = function Header(_ref) {
+	  var onFilterChange = _ref.onFilterChange;
+	  var _useState = reactExports.useState([]),
+	    _useState2 = _slicedToArray(_useState, 2),
+	    selectedFilters = _useState2[0],
+	    setselectedFilters = _useState2[1];
+	  var _useState3 = reactExports.useState(""),
+	    _useState4 = _slicedToArray(_useState3, 2);
+	    _useState4[0];
+	    var setselectedText = _useState4[1];
+	  var handleButtonClick = function handleButtonClick(filterName) {
+	    setselectedFilters(function (prevFilters) {
+	      var updatedFilters = prevFilters.includes(filterName) ? prevFilters.filter(function (filter) {
+	        return filter !== filterName;
+	      }) : [].concat(_toConsumableArray(prevFilters), [filterName]);
+	      onFilterChange(updatedFilters);
+	      return updatedFilters;
+	    });
+	  };
+	  var handleInputText = function handleInputText(event) {
+	    setselectedText(event.target.value);
+	  };
+	  console.log("Header", selectedFilters);
+	  return /*#__PURE__*/React.createElement("div", {
+	    className: "headerContainer"
+	  }, /*#__PURE__*/React.createElement("div", {
+	    className: "searchBarContainer"
+	  }, /*#__PURE__*/React.createElement("input", {
+	    onChange: handleInputText,
+	    type: "text",
+	    placeholder: "Search here",
+	    className: "searchBar"
+	  })), /*#__PURE__*/React.createElement("div", {
+	    className: "buttonContainer"
+	  }, /*#__PURE__*/React.createElement("button", {
+	    onClick: function onClick() {
+	      return handleButtonClick("Baroque");
+	    },
+	    className: selectedFilters.includes("Baroque") ? "selectedButton" : ""
+	  }, "Baroque"), /*#__PURE__*/React.createElement("button", {
+	    onClick: function onClick() {
+	      return handleButtonClick("Renaissance");
+	    },
+	    className: selectedFilters.includes("Renaissance") ? "selectedButton" : ""
+	  }, "Renaissance"), /*#__PURE__*/React.createElement("button", {
+	    onClick: function onClick() {
+	      return handleButtonClick("Peinture");
+	    },
+	    className: selectedFilters.includes("Peinture") ? "selectedButton" : ""
+	  }, "Peinture"), /*#__PURE__*/React.createElement("button", {
+	    onClick: function onClick() {
+	      return handleButtonClick("Sculpture");
+	    },
+	    className: selectedFilters.includes("Sculpture") ? "selectedButton" : ""
+	  }, "Sculpture"), /*#__PURE__*/React.createElement("button", {
+	    onClick: function onClick() {
+	      return handleButtonClick("Rococo");
+	    },
+	    className: selectedFilters.includes("Rococo") ? "selectedButton" : ""
+	  }, "Rococo")));
+	};
+
 	var Accueil = function Accueil() {
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Oeuvres, null));
+	  var _useState = reactExports.useState([]),
+	    _useState2 = _slicedToArray(_useState, 2),
+	    selectedFilters = _useState2[0],
+	    setSelectedFilters = _useState2[1];
+	  var handleFilterChange = function handleFilterChange(newFilters) {
+	    setSelectedFilters(newFilters);
+	  };
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
+	    onFilterChange: handleFilterChange
+	  }), /*#__PURE__*/React.createElement(Oeuvres, {
+	    selectedFilters: selectedFilters
+	  }));
 	};
 
 	var lib = {};
