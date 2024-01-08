@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import data from "../data.json";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const SingleOeuvrePage = () => {
   const [oeuvre, setOeuvre] = useState(null);
@@ -53,6 +55,7 @@ const SingleOeuvrePage = () => {
 
   return (
     <div>
+      <Header />
       <div className="containerOeuvre">
         <div className="imageContent">
           {oeuvre && <img src={oeuvre.image} alt={oeuvre.titre} />}
@@ -97,6 +100,7 @@ const SingleOeuvrePage = () => {
           <Carousel oeuvres={similarOeuvres} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
