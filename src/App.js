@@ -10,7 +10,7 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<Accueil />} />
-        <Route path="/oeuvre/:id" element={<SingleOeuvrePage />} />
+        <Route path="/oeuvre/:slugify" element={<SingleOeuvrePage />} />
       </Routes>
     </div>
   );

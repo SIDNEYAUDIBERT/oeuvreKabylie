@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Audio,
-  Bars,
-  BallTriangle,
-  Oval,
-  MagnifyingGlass,
-} from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 import Oeuvre from "./Oeuvre";
 import data from "../data.json";
 
@@ -55,15 +49,15 @@ const Oeuvres = ({ selectedFilters }) => {
   return (
     <div className="container">
       {isLoading && (
-        <MagnifyingGlass
+        <Oval
           visible={true}
           height="100"
           width="100"
-          ariaLabel="magnifying-glass-loading"
-          wrapperStyle={{}}
+          ariaLabel="oval-loading"
+          wrapperStyle={{ margin: "200px" }}
           wrapperClass="magnifying-glass-wrapper"
-          glassColor="#c0efff"
-          color="#e15b64"
+          glassColor="#aca5a5"
+          color="black"
         />
       )}
 
@@ -77,6 +71,7 @@ const Oeuvres = ({ selectedFilters }) => {
             prix={oeuvre.prix}
             periode={oeuvre.periode}
             id={oeuvre.id}
+            slugify={oeuvre.slugify}
           />
         ))}
       </div>
