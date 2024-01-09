@@ -4,8 +4,6 @@ import Oeuvre from "./Oeuvre";
 import data from "../data.json";
 import { useParams } from "react-router-dom";
 
-
-
 const Oeuvres = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,22 +23,7 @@ const Oeuvres = () => {
           return selectedFilters.includes(oeuvre.periode);
         });
 
-        // Limiter à 3 œuvres par période
-        const limitedOeuvres = {};
-        filteredOeuvres.forEach((oeuvre) => {
-          if (!limitedOeuvres[oeuvre.periode]) {
-            limitedOeuvres[oeuvre.periode] = [];
-          }
-
-          if (limitedOeuvres[oeuvre.periode].length < 3) {
-            limitedOeuvres[oeuvre.periode].push({ ...oeuvre });
-          }
-        });
-
-        // Flatten l'objet en un tableau
-        const flattenedOeuvres = Object.values(limitedOeuvres).flat();
-
-        setOeuvres(flattenedOeuvres);
+        setOeuvres(filteredOeuvres);
         setIsLoading(false);
       } catch (error) {
         console.error("Erreur lors du chargement des données:", error);
