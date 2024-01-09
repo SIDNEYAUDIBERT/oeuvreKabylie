@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search } from 'lucide-react';
+import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FilterButton = ({ filterName, selectedFilters, onClick }) => (
@@ -35,7 +35,14 @@ const Header = ({ onFilterChange }) => {
 
   console.log("Header", selectedFilters);
 
-  const filters = ["Baroque", "Renaissance","Rococo","Classicisme","Peinture", "Sculpture"];
+  const filters = [
+    "Baroque",
+    "Renaissance",
+    "Rococo",
+    "Classicisme",
+    "Peinture",
+    "Sculpture",
+  ];
 
   return (
     <div className="headerContainer">
