@@ -57,6 +57,7 @@ const Oeuvres = () => {
             dateCreation={oeuvre.date}
             prix={oeuvre.prix}
             periode={oeuvre.periode}
+            categories={oeuvre.categories}
             id={oeuvre.id}
             slugify={oeuvre.slugify}
           />

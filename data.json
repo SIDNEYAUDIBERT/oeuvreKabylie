@@ -3,12 +3,12 @@
     {
       "periode": "Renaissance",
       "id": "kq3090m5aol",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Joconde",
       "artiste": "Leonardo da Vinci",
       "date": "1503-1506",
       "prix": 1000000,
-      "image": "../images/renaissance/peinture/rp1.jpg",
+      "image": "../images/renaissance/peinture/rpeinture.jpg",
       "nouveau": true,
       "slugify": "la-joconde",
       "description": "La Joconde, également connue sous le nom de Mona Lisa, est un chef-d'œuvre emblématique de Leonardo da Vinci. Ce portrait énigmatique d'une femme mystérieuse a captivé des générations d'admirateurs par son sourire énigmatique et son regard profond."
@@ -16,7 +16,7 @@
     {
       "periode": "Renaissance",
       "id": "kq3090m89a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Naissance de Vénus",
       "artiste": "Sandro Botticelli",
       "date": "1484-1486",
@@ -29,7 +29,7 @@
     {
       "periode": "Renaissance",
       "id": "kq30907643a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Cène",
       "artiste": "Leonardo da Vinci",
       "date": "1495-1498",
@@ -42,7 +42,7 @@
     {
       "periode": "Renaissance",
       "id": "kq309234a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Primavera",
       "artiste": "Sandro Botticelli",
       "date": "1477-1482",
@@ -55,7 +55,7 @@
     {
       "periode": "Renaissance",
       "id": "kq30902ZED5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "L'Homme de Vitruve",
       "artiste": "Leonardo da Vinci",
       "date": "1490",
@@ -133,12 +133,12 @@
     {
       "periode": "Baroque",
       "id": "kqsa",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "Les Ménines",
       "artiste": "Diego Velázquez",
       "date": "1656",
       "prix": 1000000,
-      "image": "../images/baroque/peinture/bp1.jpg",
+      "image": "../images/baroque/peinture/bpeinture.jpg",
       "nouveau": true,
       "slugify": "les-menines",
       "description": "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -146,7 +146,7 @@
     {
       "periode": "Baroque",
       "id": "kqsz5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Leçon d'anatomie du docteur Tulp",
       "artiste": "Rembrandt",
       "date": "1632",
@@ -159,7 +159,7 @@
     {
       "periode": "Baroque",
       "id": "kqszaa5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Jeune Fille à la perle",
       "artiste": "Johannes Vermeer",
       "date": "1665",
@@ -172,7 +172,7 @@
     {
       "periode": "Baroque",
       "id": "kqsz5a0",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Ronde de nuit",
       "artiste": "Rembrandt",
       "date": "1642",
@@ -185,7 +185,7 @@
     {
       "periode": "Baroque",
       "id": "kqsz5ki0",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Laitière",
       "artiste": "Johannes Vermeer",
       "date": "1658",
@@ -251,12 +251,12 @@
     {
       "periode": "Rococo",
       "id": "kq3o0m5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "L'Éscarpolette",
       "artiste": "Jean-Honoré Fragonard",
       "date": "1767",
       "prix": 1200000,
-      "image": "../images/rococo/peinture/rp1.jpg",
+      "image": "../images/rococo/peinture/rpeinture.jpg",
       "nouveau": true,
       "slugify": "l-escarpolette",
       "description": "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -264,7 +264,7 @@
     {
       "periode": "Rococo",
       "id": "kq54o0m5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Leçon de musique",
       "artiste": "Jean-Antoine Watteau",
       "date": "1719",
@@ -277,7 +277,7 @@
     {
       "periode": "Rococo",
       "id": "kq20o0m5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "Le Verrou",
       "artiste": "Jean-Honoré Fragonard",
       "date": "1777",
@@ -290,7 +290,7 @@
     {
       "periode": "Rococo",
       "id": "k2PM3o0m5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "Le Retour de pêche",
       "artiste": "François Boucher",
       "date": "1732",
@@ -303,7 +303,7 @@
     {
       "periode": "Rococo",
       "id": "kq3oytbm5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "L'Amour menaçant",
       "artiste": "Jean-Honoré Fragonard",
       "date": "1770",
@@ -381,12 +381,12 @@
     {
       "periode": "Classicisme",
       "id": "kqsz00pm5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "Le Sacre de Napoléon",
       "artiste": "Jacques-Louis David",
       "date": "1805-1807",
       "prix": 1300000,
-      "image": "../images/classicisme/peinture/cp1.jpg",
+      "image": "../images/classicisme/peinture/cpeinture.jpg",
       "nouveau": true,
       "slugify": "le-sacre-de-napoleon",
       "description": "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -394,7 +394,7 @@
     {
       "periode": "Classicisme",
       "id": "kqsz00p35a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "Portrait de Madame Récamier",
       "artiste": "Jacques-Louis David",
       "date": "1800",
@@ -407,7 +407,7 @@
     {
       "periode": "Classicisme",
       "id": "kq2z00pm5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "Le Serment des Horaces",
       "artiste": "Jacques-Louis David",
       "date": "1784",
@@ -420,7 +420,7 @@
     {
       "periode": "Classicisme",
       "id": "kqsz07pm5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Mort de Sardanapale",
       "artiste": "Eugène Delacroix",
       "date": "1827",
@@ -433,7 +433,7 @@
     {
       "periode": "Classicisme",
       "id": "kqs300pm5a",
-      "categories": "p1",
+      "categories": "peinture",
       "titre": "La Liberté guidant le peuple",
       "artiste": "Eugène Delacroix",
       "date": "1830",
