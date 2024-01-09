@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Oeuvres from "./Oeuvres";
-import Oeuvre from "./Oeuvre";
 import Header from "./Header";
 import Footer from "./Footer";
 

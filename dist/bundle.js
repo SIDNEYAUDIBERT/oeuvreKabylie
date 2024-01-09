@@ -13699,7 +13699,8 @@
 	    dateCreation = _ref.dateCreation,
 	    prix = _ref.prix,
 	    periode = _ref.periode,
-	    slugify = _ref.slugify;
+	    slugify = _ref.slugify,
+	    categories = _ref.categories;
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvre-card"
 	  }, /*#__PURE__*/React.createElement(Link, {
@@ -13711,14 +13712,14 @@
 	    className: "oeuvre-image"
 	  }), /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvre-details"
-	  }, /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("p", null, "Date de cr\xE9ation : ", dateCreation), /*#__PURE__*/React.createElement("p", null, "Prix : ", prix), /*#__PURE__*/React.createElement("p", null, "P\xE9riode : ", periode))));
+	  }, /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("p", null, "Date de cr\xE9ation : ", dateCreation), /*#__PURE__*/React.createElement("p", null, "Prix : ", prix), /*#__PURE__*/React.createElement("p", null, "P\xE9riode : ", periode), /*#__PURE__*/React.createElement("p", null, "Cat\xE9gorie : ", categories))));
 	};
 
 	var oeuvres = [
 		{
 			periode: "Renaissance",
 			id: "kq3090m5aol",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Joconde",
 			artiste: "Leonardo da Vinci",
 			date: "1503-1506",
@@ -13731,7 +13732,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq3090m89a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Naissance de Vénus",
 			artiste: "Sandro Botticelli",
 			date: "1484-1486",
@@ -13744,7 +13745,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq30907643a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Cène",
 			artiste: "Leonardo da Vinci",
 			date: "1495-1498",
@@ -13757,7 +13758,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq309234a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Primavera",
 			artiste: "Sandro Botticelli",
 			date: "1477-1482",
@@ -13770,7 +13771,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq30902ZED5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "L'Homme de Vitruve",
 			artiste: "Leonardo da Vinci",
 			date: "1490",
@@ -13848,7 +13849,7 @@
 		{
 			periode: "Baroque",
 			id: "kqsa",
-			categories: "p1",
+			categories: "peinture",
 			titre: "Les Ménines",
 			artiste: "Diego Velázquez",
 			date: "1656",
@@ -13861,7 +13862,7 @@
 		{
 			periode: "Baroque",
 			id: "kqsz5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Leçon d'anatomie du docteur Tulp",
 			artiste: "Rembrandt",
 			date: "1632",
@@ -13874,7 +13875,7 @@
 		{
 			periode: "Baroque",
 			id: "kqszaa5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Jeune Fille à la perle",
 			artiste: "Johannes Vermeer",
 			date: "1665",
@@ -13887,7 +13888,7 @@
 		{
 			periode: "Baroque",
 			id: "kqsz5a0",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Ronde de nuit",
 			artiste: "Rembrandt",
 			date: "1642",
@@ -13900,7 +13901,7 @@
 		{
 			periode: "Baroque",
 			id: "kqsz5ki0",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Laitière",
 			artiste: "Johannes Vermeer",
 			date: "1658",
@@ -13965,7 +13966,7 @@
 		{
 			periode: "Rococo",
 			id: "kq3o0m5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "L'Éscarpolette",
 			artiste: "Jean-Honoré Fragonard",
 			date: "1767",
@@ -13978,7 +13979,7 @@
 		{
 			periode: "Rococo",
 			id: "kq54o0m5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Leçon de musique",
 			artiste: "Jean-Antoine Watteau",
 			date: "1719",
@@ -13991,7 +13992,7 @@
 		{
 			periode: "Rococo",
 			id: "kq20o0m5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "Le Verrou",
 			artiste: "Jean-Honoré Fragonard",
 			date: "1777",
@@ -14004,7 +14005,7 @@
 		{
 			periode: "Rococo",
 			id: "k2PM3o0m5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "Le Retour de pêche",
 			artiste: "François Boucher",
 			date: "1732",
@@ -14017,7 +14018,7 @@
 		{
 			periode: "Rococo",
 			id: "kq3oytbm5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "L'Amour menaçant",
 			artiste: "Jean-Honoré Fragonard",
 			date: "1770",
@@ -14095,7 +14096,7 @@
 		{
 			periode: "Classicisme",
 			id: "kqsz00pm5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "Le Sacre de Napoléon",
 			artiste: "Jacques-Louis David",
 			date: "1805-1807",
@@ -14108,7 +14109,7 @@
 		{
 			periode: "Classicisme",
 			id: "kqsz00p35a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "Portrait de Madame Récamier",
 			artiste: "Jacques-Louis David",
 			date: "1800",
@@ -14121,7 +14122,7 @@
 		{
 			periode: "Classicisme",
 			id: "kq2z00pm5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "Le Serment des Horaces",
 			artiste: "Jacques-Louis David",
 			date: "1784",
@@ -14134,7 +14135,7 @@
 		{
 			periode: "Classicisme",
 			id: "kqsz07pm5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Mort de Sardanapale",
 			artiste: "Eugène Delacroix",
 			date: "1827",
@@ -14147,7 +14148,7 @@
 		{
 			periode: "Classicisme",
 			id: "kqs300pm5a",
-			categories: "p1",
+			categories: "peinture",
 			titre: "La Liberté guidant le peuple",
 			artiste: "Eugène Delacroix",
 			date: "1830",
@@ -14242,7 +14243,7 @@
 	  reactExports.useEffect(function () {
 	    var fetchData = /*#__PURE__*/function () {
 	      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-	        var filteredOeuvres, limitedOeuvres, flattenedOeuvres;
+	        var filteredOeuvres;
 	        return _regeneratorRuntime().wrap(function _callee$(_context) {
 	          while (1) switch (_context.prev = _context.next) {
 	            case 0:
@@ -14254,20 +14255,8 @@
 	                  }
 	                  // Sinon, vérifier si l'œuvre correspond à au moins un filtre
 	                  return selectedFilters.includes(oeuvre.periode);
-	                }); // Limiter à 3 œuvres par période
-	                limitedOeuvres = {};
-	                filteredOeuvres.forEach(function (oeuvre) {
-	                  if (!limitedOeuvres[oeuvre.periode]) {
-	                    limitedOeuvres[oeuvre.periode] = [];
-	                  }
-	                  if (limitedOeuvres[oeuvre.periode].length < 3) {
-	                    limitedOeuvres[oeuvre.periode].push(_objectSpread2({}, oeuvre));
-	                  }
 	                });
-
-	                // Flatten l'objet en un tableau
-	                flattenedOeuvres = Object.values(limitedOeuvres).flat();
-	                setOeuvres(flattenedOeuvres);
+	                setOeuvres(filteredOeuvres);
 	                setIsLoading(false);
 	              } catch (error) {
 	                console.error("Erreur lors du chargement des données:", error);
@@ -14307,6 +14296,7 @@
 	      dateCreation: oeuvre.date,
 	      prix: oeuvre.prix,
 	      periode: oeuvre.periode,
+	      categories: oeuvre.categories,
 	      id: oeuvre.id,
 	      slugify: oeuvre.slugify
 	    });

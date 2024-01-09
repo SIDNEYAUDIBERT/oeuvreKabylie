@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Oeuvre = ({ imageSrc, title, dateCreation, prix, periode, slugify }) => {
+const Oeuvre = ({
+  imageSrc,
+  title,
+  dateCreation,
+  prix,
+  periode,
+  slugify,
+  categories,
+}) => {
   return (
     <div className="oeuvre-card">
       <Link to={`/oeuvre/${slugify}`} className="custom-link">
@@ -11,6 +19,7 @@ const Oeuvre = ({ imageSrc, title, dateCreation, prix, periode, slugify }) => {
           <p>Date de création : {dateCreation}</p>
           <p>Prix : {prix}</p>
           <p>Période : {periode}</p>
+          <p>Catégorie : {categories}</p>
         </div>
       </Link>
     </div>
