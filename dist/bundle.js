@@ -13724,7 +13724,7 @@
 			artiste: "Leonardo da Vinci",
 			date: "1503-1506",
 			prix: 1000000,
-			image: "../images/renaissance/peinture/rp1.jpg",
+			image: "../images/renaissance/peinture/rpeinture.jpg",
 			nouveau: true,
 			slugify: "la-joconde",
 			description: "La Joconde, également connue sous le nom de Mona Lisa, est un chef-d'œuvre emblématique de Leonardo da Vinci. Ce portrait énigmatique d'une femme mystérieuse a captivé des générations d'admirateurs par son sourire énigmatique et son regard profond."
@@ -13854,7 +13854,7 @@
 			artiste: "Diego Velázquez",
 			date: "1656",
 			prix: 1000000,
-			image: "../images/baroque/peinture/bp1.jpg",
+			image: "../images/baroque/peinture/bpeinture.jpg",
 			nouveau: true,
 			slugify: "les-menines",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -13971,7 +13971,7 @@
 			artiste: "Jean-Honoré Fragonard",
 			date: "1767",
 			prix: 1200000,
-			image: "../images/rococo/peinture/rp1.jpg",
+			image: "../images/rococo/peinture/rpeinture.jpg",
 			nouveau: true,
 			slugify: "l-escarpolette",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -14101,7 +14101,7 @@
 			artiste: "Jacques-Louis David",
 			date: "1805-1807",
 			prix: 1300000,
-			image: "../images/classicisme/peinture/cp1.jpg",
+			image: "../images/classicisme/peinture/cpeinture.jpg",
 			nouveau: true,
 			slugify: "le-sacre-de-napoleon",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
