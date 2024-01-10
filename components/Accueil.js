@@ -4,16 +4,16 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const Accueil = () => {
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedFilter, setSelectedFilter] = useState();
 
-  const handleFilterChange = (newFilters) => {
-    setSelectedFilters(newFilters);
+  const handleFilterChange = (newFilter) => {
+    setSelectedFilter(newFilter);
   };
+  console.log("Accueil", selectedFilter);
   return (
     <div>
       <Header onFilterChange={handleFilterChange} />
-      <Oeuvres selectedFilters={selectedFilters} />
-      <Footer />
+      <Oeuvres selectedFilter={selectedFilter} />
     </div>
   );
 };
