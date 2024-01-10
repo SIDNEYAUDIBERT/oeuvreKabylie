@@ -3,13 +3,15 @@ import { Oval } from "react-loader-spinner";
 import Oeuvre from "./Oeuvre";
 import data from "../data.json";
 import { useParams } from "react-router-dom";
+import { UndoIcon } from "lucide-react";
 
 const Oeuvres = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { selectedFilter,recherche } = useParams();
+  const { selectedFilter, recherche } = useParams();
 
   console.log("recherche", recherche);
+  console.log("selectedFilter", selectedFilter);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,20 +19,21 @@ const Oeuvres = () => {
         setIsLoading(true);
         const filteredOeuvres = data.oeuvres.filter((oeuvre) => {
           // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
-          if (selectedFilter === undefined) {
+
+          if (selectedFilter === undefined && recherche === undefined) {
             return true;
           }
 
           // Vérifier si l'œuvre correspond au filtre
+          console.log("jrierno", oeuvre.titre);
           const matchesFilter =
+            (oeuvre.titre.includes(recherche) &&
+              selectedFilter === undefined) ||
             selectedFilter === oeuvre.periode ||
-            ((selectedFilter === "Peinture" ||
-              selectedFilter === "Sculpture") &&
-              oeuvre.categories.includes(selectedFilter));
+            oeuvre.categories == selectedFilter;
 
           return matchesFilter;
         });
-        
 
         setOeuvres(filteredOeuvres);
         setIsLoading(false);
@@ -40,7 +43,7 @@ const Oeuvres = () => {
     };
 
     fetchData();
-  }, [selectedFilter]);
+  }, [selectedFilter, recherche]);
 
   return (
     <div className="container">

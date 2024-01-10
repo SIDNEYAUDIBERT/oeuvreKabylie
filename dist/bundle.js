@@ -13904,7 +13904,7 @@
 			id: "kqszopm5a",
 			categories: "Sculpture",
 			titre: "Le Bernin",
-			artiste: "Le Bernin",
+			artiste: "Antonio de la vega",
 			date: "1623-1624",
 			prix: 800000,
 			image: "../images/baroque/sculpture/bs1.jpg",
@@ -13916,8 +13916,8 @@
 			periode: "Baroque",
 			id: "kqszzz5a",
 			categories: "Sculpture",
-			titre: "Le Bernin",
-			artiste: "Le Bernin",
+			titre: "La magnifique saison",
+			artiste: "Benjamin Hutton",
 			date: "1622-1625",
 			prix: 950000,
 			image: "../images/baroque/sculpture/bs2.jpg",
@@ -13942,8 +13942,8 @@
 			periode: "Baroque",
 			id: "kqszop4m5a",
 			categories: "Sculpture",
-			titre: "Le Bernin",
-			artiste: "Le Bernin",
+			titre: "La première aube",
+			artiste: "Phélicien Dimon",
 			date: "1622-1625",
 			prix: 90000,
 			image: "../images/baroque/sculpture/bs4.jpg",
@@ -14216,85 +14216,6 @@
 		oeuvres: oeuvres
 	};
 
-	var Oeuvres = function Oeuvres() {
-	  var _useState = reactExports.useState([]),
-	    _useState2 = _slicedToArray(_useState, 2),
-	    oeuvres = _useState2[0],
-	    setOeuvres = _useState2[1];
-	  var _useState3 = reactExports.useState(true),
-	    _useState4 = _slicedToArray(_useState3, 2),
-	    isLoading = _useState4[0],
-	    setIsLoading = _useState4[1];
-	  var _useParams = useParams(),
-	    selectedFilter = _useParams.selectedFilter,
-	    recherche = _useParams.recherche;
-	  console.log("recherche", recherche);
-	  reactExports.useEffect(function () {
-	    var fetchData = /*#__PURE__*/function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-	        var filteredOeuvres;
-	        return _regeneratorRuntime().wrap(function _callee$(_context) {
-	          while (1) switch (_context.prev = _context.next) {
-	            case 0:
-	              try {
-	                setIsLoading(true);
-	                filteredOeuvres = data.oeuvres.filter(function (oeuvre) {
-	                  // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
-	                  if (selectedFilter === undefined) {
-	                    return true;
-	                  }
-
-	                  // Vérifier si l'œuvre correspond au filtre
-	                  var matchesFilter = selectedFilter === oeuvre.periode || (selectedFilter === "Peinture" || selectedFilter === "Sculpture") && oeuvre.categories.includes(selectedFilter);
-	                  return matchesFilter;
-	                });
-	                setOeuvres(filteredOeuvres);
-	                setIsLoading(false);
-	              } catch (error) {
-	                console.error("Erreur lors du chargement des données:", error);
-	              }
-	            case 1:
-	            case "end":
-	              return _context.stop();
-	          }
-	        }, _callee);
-	      }));
-	      return function fetchData() {
-	        return _ref.apply(this, arguments);
-	      };
-	    }();
-	    fetchData();
-	  }, [selectedFilter]);
-	  return /*#__PURE__*/React.createElement("div", {
-	    className: "container"
-	  }, isLoading && /*#__PURE__*/React.createElement($bab978db7e7ddb54$export$67ad50c48ca3ede4, {
-	    visible: true,
-	    height: "100",
-	    width: "100",
-	    ariaLabel: "oval-loading",
-	    wrapperStyle: {
-	      margin: "200px"
-	    },
-	    wrapperClass: "magnifying-glass-wrapper",
-	    glassColor: "#aca5a5",
-	    color: "black"
-	  }), /*#__PURE__*/React.createElement("div", {
-	    className: "oeuvres-container"
-	  }, oeuvres.map(function (oeuvre) {
-	    return /*#__PURE__*/React.createElement(Oeuvre, {
-	      key: oeuvre.id,
-	      imageSrc: oeuvre.image,
-	      title: oeuvre.titre,
-	      dateCreation: oeuvre.date,
-	      prix: oeuvre.prix,
-	      periode: oeuvre.periode,
-	      categories: oeuvre.categories,
-	      id: oeuvre.id,
-	      slugify: oeuvre.slugify
-	    });
-	  })));
-	};
-
 	/**
 	 * @license lucide-react v0.298.0 - ISC
 	 *
@@ -14458,6 +14379,88 @@
 	  key: "pff0z6"
 	}]]);
 
+	var Oeuvres = function Oeuvres() {
+	  var _useState = reactExports.useState([]),
+	    _useState2 = _slicedToArray(_useState, 2),
+	    oeuvres = _useState2[0],
+	    setOeuvres = _useState2[1];
+	  var _useState3 = reactExports.useState(true),
+	    _useState4 = _slicedToArray(_useState3, 2),
+	    isLoading = _useState4[0],
+	    setIsLoading = _useState4[1];
+	  var _useParams = useParams(),
+	    selectedFilter = _useParams.selectedFilter,
+	    recherche = _useParams.recherche;
+	  console.log("recherche", recherche);
+	  console.log("selectedFilter", selectedFilter);
+	  reactExports.useEffect(function () {
+	    var fetchData = /*#__PURE__*/function () {
+	      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+	        var filteredOeuvres;
+	        return _regeneratorRuntime().wrap(function _callee$(_context) {
+	          while (1) switch (_context.prev = _context.next) {
+	            case 0:
+	              try {
+	                setIsLoading(true);
+	                filteredOeuvres = data.oeuvres.filter(function (oeuvre) {
+	                  // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
+
+	                  if (selectedFilter === undefined && recherche === undefined) {
+	                    return true;
+	                  }
+
+	                  // Vérifier si l'œuvre correspond au filtre
+	                  console.log("jrierno", oeuvre.titre);
+	                  var matchesFilter = oeuvre.titre.includes(recherche) && selectedFilter === undefined || selectedFilter === oeuvre.periode || oeuvre.categories == selectedFilter;
+	                  return matchesFilter;
+	                });
+	                setOeuvres(filteredOeuvres);
+	                setIsLoading(false);
+	              } catch (error) {
+	                console.error("Erreur lors du chargement des données:", error);
+	              }
+	            case 1:
+	            case "end":
+	              return _context.stop();
+	          }
+	        }, _callee);
+	      }));
+	      return function fetchData() {
+	        return _ref.apply(this, arguments);
+	      };
+	    }();
+	    fetchData();
+	  }, [selectedFilter, recherche]);
+	  return /*#__PURE__*/React.createElement("div", {
+	    className: "container"
+	  }, isLoading && /*#__PURE__*/React.createElement($bab978db7e7ddb54$export$67ad50c48ca3ede4, {
+	    visible: true,
+	    height: "100",
+	    width: "100",
+	    ariaLabel: "oval-loading",
+	    wrapperStyle: {
+	      margin: "200px"
+	    },
+	    wrapperClass: "magnifying-glass-wrapper",
+	    glassColor: "#aca5a5",
+	    color: "black"
+	  }), /*#__PURE__*/React.createElement("div", {
+	    className: "oeuvres-container"
+	  }, oeuvres.map(function (oeuvre) {
+	    return /*#__PURE__*/React.createElement(Oeuvre, {
+	      key: oeuvre.id,
+	      imageSrc: oeuvre.image,
+	      title: oeuvre.titre,
+	      dateCreation: oeuvre.date,
+	      prix: oeuvre.prix,
+	      periode: oeuvre.periode,
+	      categories: oeuvre.categories,
+	      id: oeuvre.id,
+	      slugify: oeuvre.slugify
+	    });
+	  })));
+	};
+
 	var FilterButton = function FilterButton(_ref) {
 	  var filterName = _ref.filterName,
 	    selectedFilter = _ref.selectedFilter,
@@ -14471,8 +14474,7 @@
 	    className: "filterButton ".concat(selectedFilter === filterName ? "selectedButton" : "")
 	  }, filterName));
 	};
-	var Header = function Header(_ref2) {
-	  var onFilterChange = _ref2.onFilterChange;
+	var Header = function Header() {
 	  var _useState = reactExports.useState(""),
 	    _useState2 = _slicedToArray(_useState, 2),
 	    selectedFilter = _useState2[0],
@@ -14484,10 +14486,10 @@
 	  var navigate = useNavigate();
 	  var handleButtonClick = function handleButtonClick(filterName) {
 	    setSelectedFilter(filterName);
-	    onFilterChange(filterName);
 	  };
 	  var handleSearch = function handleSearch() {
 	    navigate("/recherche/".concat(selectedText));
+	    selectedText("");
 	  };
 	  var handleInputText = function handleInputText(event) {
 	    setSelectedText(event.target.value);
