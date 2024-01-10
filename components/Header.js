@@ -3,7 +3,6 @@ import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
 const FilterButton = ({ filterName, selectedFilter, onClick }) => (
   <Link to={`/${filterName}`}>
     <button
@@ -17,7 +16,7 @@ const FilterButton = ({ filterName, selectedFilter, onClick }) => (
   </Link>
 );
 
-const Header = ({ onFilterChange }) => {
+const Header = () => {
   const [selectedFilter, setSelectedFilter] = useState("");
   const [selectedText, setSelectedText] = useState("");
 
@@ -25,7 +24,6 @@ const Header = ({ onFilterChange }) => {
 
   const handleButtonClick = (filterName) => {
     setSelectedFilter(filterName);
-    onFilterChange(filterName);
   };
 
   const handleSearch = () => {
