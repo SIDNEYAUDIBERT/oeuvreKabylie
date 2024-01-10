@@ -10681,17 +10681,8 @@
 	function _slicedToArray(arr, i) {
 	  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 	}
-	function _toConsumableArray(arr) {
-	  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-	}
-	function _arrayWithoutHoles(arr) {
-	  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-	}
 	function _arrayWithHoles(arr) {
 	  if (Array.isArray(arr)) return arr;
-	}
-	function _iterableToArray(iter) {
-	  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 	}
 	function _unsupportedIterableToArray(o, minLen) {
 	  if (!o) return;
@@ -10705,9 +10696,6 @@
 	  if (len == null || len > arr.length) len = arr.length;
 	  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
 	  return arr2;
-	}
-	function _nonIterableSpread() {
-	  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 	}
 	function _nonIterableRest() {
 	  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
@@ -13719,12 +13707,12 @@
 		{
 			periode: "Renaissance",
 			id: "kq3090m5aol",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Joconde",
 			artiste: "Leonardo da Vinci",
 			date: "1503-1506",
 			prix: 1000000,
-			image: "../images/renaissance/peinture/rpeinture.jpg",
+			image: "../images/renaissance/peinture/rp1.jpg",
 			nouveau: true,
 			slugify: "la-joconde",
 			description: "La Joconde, également connue sous le nom de Mona Lisa, est un chef-d'œuvre emblématique de Leonardo da Vinci. Ce portrait énigmatique d'une femme mystérieuse a captivé des générations d'admirateurs par son sourire énigmatique et son regard profond."
@@ -13732,7 +13720,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq3090m89a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Naissance de Vénus",
 			artiste: "Sandro Botticelli",
 			date: "1484-1486",
@@ -13745,7 +13733,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq30907643a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Cène",
 			artiste: "Leonardo da Vinci",
 			date: "1495-1498",
@@ -13758,7 +13746,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq309234a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Primavera",
 			artiste: "Sandro Botticelli",
 			date: "1477-1482",
@@ -13771,7 +13759,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq30902ZED5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "L'Homme de Vitruve",
 			artiste: "Leonardo da Vinci",
 			date: "1490",
@@ -13784,7 +13772,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq3090m5asd",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "David",
 			artiste: "Michel-Ange",
 			date: "1501-1504",
@@ -13797,7 +13785,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq30965Gm5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "La Pieta",
 			artiste: "Michel-Ange",
 			date: "1498-1499",
@@ -13810,7 +13798,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq3090mJJKa",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Bacchus",
 			artiste: "Michel-Ange",
 			date: "1496-1497",
@@ -13823,7 +13811,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq309JDJHa",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Les Esclaves",
 			artiste: "Michel-Ange",
 			date: "1513-1534",
@@ -13836,7 +13824,7 @@
 		{
 			periode: "Renaissance",
 			id: "kq5409JDJHa",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Mercure",
 			artiste: "Giambologna",
 			date: "1580",
@@ -13849,12 +13837,12 @@
 		{
 			periode: "Baroque",
 			id: "kqsa",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "Les Ménines",
 			artiste: "Diego Velázquez",
 			date: "1656",
 			prix: 1000000,
-			image: "../images/baroque/peinture/bpeinture.jpg",
+			image: "../images/baroque/peinture/bp1.jpg",
 			nouveau: true,
 			slugify: "les-menines",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -13862,7 +13850,7 @@
 		{
 			periode: "Baroque",
 			id: "kqsz5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Leçon d'anatomie du docteur Tulp",
 			artiste: "Rembrandt",
 			date: "1632",
@@ -13875,7 +13863,7 @@
 		{
 			periode: "Baroque",
 			id: "kqszaa5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Jeune Fille à la perle",
 			artiste: "Johannes Vermeer",
 			date: "1665",
@@ -13888,7 +13876,7 @@
 		{
 			periode: "Baroque",
 			id: "kqsz5a0",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Ronde de nuit",
 			artiste: "Rembrandt",
 			date: "1642",
@@ -13901,7 +13889,7 @@
 		{
 			periode: "Baroque",
 			id: "kqsz5ki0",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Laitière",
 			artiste: "Johannes Vermeer",
 			date: "1658",
@@ -13914,7 +13902,7 @@
 		{
 			periode: "Baroque",
 			id: "kqszopm5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Le Bernin",
 			artiste: "Le Bernin",
 			date: "1623-1624",
@@ -13927,7 +13915,7 @@
 		{
 			periode: "Baroque",
 			id: "kqszzz5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Le Bernin",
 			artiste: "Le Bernin",
 			date: "1622-1625",
@@ -13940,7 +13928,7 @@
 		{
 			periode: "Baroque",
 			id: "kqopm5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Le Berni",
 			artiste: "Le Berni",
 			date: "1622-1625",
@@ -13953,7 +13941,7 @@
 		{
 			periode: "Baroque",
 			id: "kqszop4m5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Le Bernin",
 			artiste: "Le Bernin",
 			date: "1622-1625",
@@ -13965,13 +13953,13 @@
 		},
 		{
 			periode: "Rococo",
-			id: "kq3o0m5a",
-			categories: "peinture",
+			id: "kq3o0m5b",
+			categories: "Peinture",
 			titre: "L'Éscarpolette",
 			artiste: "Jean-Honoré Fragonard",
 			date: "1767",
 			prix: 1200000,
-			image: "../images/rococo/peinture/rpeinture.jpg",
+			image: "../images/rococo/peinture/rp1.jpg",
 			nouveau: true,
 			slugify: "l-escarpolette",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -13979,7 +13967,7 @@
 		{
 			periode: "Rococo",
 			id: "kq54o0m5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Leçon de musique",
 			artiste: "Jean-Antoine Watteau",
 			date: "1719",
@@ -13992,7 +13980,7 @@
 		{
 			periode: "Rococo",
 			id: "kq20o0m5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "Le Verrou",
 			artiste: "Jean-Honoré Fragonard",
 			date: "1777",
@@ -14005,7 +13993,7 @@
 		{
 			periode: "Rococo",
 			id: "k2PM3o0m5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "Le Retour de pêche",
 			artiste: "François Boucher",
 			date: "1732",
@@ -14018,7 +14006,7 @@
 		{
 			periode: "Rococo",
 			id: "kq3oytbm5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "L'Amour menaçant",
 			artiste: "Jean-Honoré Fragonard",
 			date: "1770",
@@ -14031,7 +14019,7 @@
 		{
 			periode: "Rococo",
 			id: "kq3o0m3a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Cupidon endormi",
 			artiste: "Étienne Maurice Falconet",
 			date: "1757",
@@ -14044,7 +14032,7 @@
 		{
 			periode: "Rococo",
 			id: "k13o0m5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Le Baiser",
 			artiste: "Auguste Rodin",
 			date: "1886",
@@ -14057,7 +14045,7 @@
 		{
 			periode: "Rococo",
 			id: "kq3o2m5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Vénus de Milo",
 			artiste: "Alexandros de Antioch",
 			date: "100 av. J.-C.",
@@ -14070,7 +14058,7 @@
 		{
 			periode: "Rococo",
 			id: "kq3o12m5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Cupidon et Psyché",
 			artiste: "Antonio Canova",
 			date: "1787",
@@ -14083,7 +14071,7 @@
 		{
 			periode: "Rococo",
 			id: "kq3o0m78a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Amour captif",
 			artiste: "Théodore Géricault",
 			date: "1817",
@@ -14096,12 +14084,12 @@
 		{
 			periode: "Classicisme",
 			id: "kqsz00pm5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "Le Sacre de Napoléon",
 			artiste: "Jacques-Louis David",
 			date: "1805-1807",
 			prix: 1300000,
-			image: "../images/classicisme/peinture/cpeinture.jpg",
+			image: "../images/classicisme/peinture/cp1.jpg",
 			nouveau: true,
 			slugify: "le-sacre-de-napoleon",
 			description: "La Pieta, une œuvre émouvante de Michel-Ange, représente la Vierge Marie tenant le corps de Jésus après la crucifixion. L'expression de tristesse et de compassion dans cette sculpture en marbre en fait une pièce exceptionnelle de la sculpture Renaissance."
@@ -14109,7 +14097,7 @@
 		{
 			periode: "Classicisme",
 			id: "kqsz00p35a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "Portrait de Madame Récamier",
 			artiste: "Jacques-Louis David",
 			date: "1800",
@@ -14122,7 +14110,7 @@
 		{
 			periode: "Classicisme",
 			id: "kq2z00pm5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "Le Serment des Horaces",
 			artiste: "Jacques-Louis David",
 			date: "1784",
@@ -14135,7 +14123,7 @@
 		{
 			periode: "Classicisme",
 			id: "kqsz07pm5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Mort de Sardanapale",
 			artiste: "Eugène Delacroix",
 			date: "1827",
@@ -14148,7 +14136,7 @@
 		{
 			periode: "Classicisme",
 			id: "kqs300pm5a",
-			categories: "peinture",
+			categories: "Peinture",
 			titre: "La Liberté guidant le peuple",
 			artiste: "Eugène Delacroix",
 			date: "1830",
@@ -14160,8 +14148,8 @@
 		},
 		{
 			periode: "Classicisme",
-			id: "kq3o0m5a",
-			categories: "s1",
+			id: "kq3o0m5c",
+			categories: "Sculpture",
 			titre: "Le Premier Consul Bonaparte",
 			artiste: "Antonio Canova",
 			date: "1802-1806",
@@ -14173,8 +14161,8 @@
 		},
 		{
 			periode: "Classicisme",
-			id: "kq3o0m5a",
-			categories: "s1",
+			id: "kq3o0m5d",
+			categories: "Sculpture",
 			titre: "Apollon et Daphné",
 			artiste: "Gian Lorenzo Bernini",
 			date: "1622-1625",
@@ -14187,7 +14175,7 @@
 		{
 			periode: "Classicisme",
 			id: "kq3o0m5a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Psyche Revived by Cupid's Kiss",
 			artiste: "Antonio Canova",
 			date: "1787-1793",
@@ -14200,7 +14188,7 @@
 		{
 			periode: "Classicisme",
 			id: "kq3o0mUa",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "La Victoire de Samothrace",
 			artiste: "Inconnu",
 			date: "190 av. J.-C.",
@@ -14213,7 +14201,7 @@
 		{
 			periode: "Classicisme",
 			id: "kq3o0m&a",
-			categories: "s1",
+			categories: "Sculpture",
 			titre: "Laocoon et ses fils",
 			artiste: "Agesandros, Polydoros, Athanadoros de Rhodes",
 			date: "1er siècle av. J.-C.",
@@ -14228,7 +14216,8 @@
 		oeuvres: oeuvres
 	};
 
-	var Oeuvres = function Oeuvres() {
+	var Oeuvres = function Oeuvres(_ref) {
+	  var selectedFilter = _ref.selectedFilter;
 	  var _useState = reactExports.useState([]),
 	    _useState2 = _slicedToArray(_useState, 2),
 	    oeuvres = _useState2[0],
@@ -14237,12 +14226,12 @@
 	    _useState4 = _slicedToArray(_useState3, 2),
 	    isLoading = _useState4[0],
 	    setIsLoading = _useState4[1];
-	  var _useParams = useParams(),
-	    selectedFilters = _useParams.selectedFilters;
-	  console.log("selectedFilters:", selectedFilters);
+	  //const { selectedFilter } = useParams();
+
+	  console.log("selectedFilter :", selectedFilter);
 	  reactExports.useEffect(function () {
 	    var fetchData = /*#__PURE__*/function () {
-	      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+	      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
 	        var filteredOeuvres;
 	        return _regeneratorRuntime().wrap(function _callee$(_context) {
 	          while (1) switch (_context.prev = _context.next) {
@@ -14250,11 +14239,13 @@
 	              try {
 	                filteredOeuvres = data.oeuvres.filter(function (oeuvre) {
 	                  // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
-	                  if (selectedFilters === undefined) {
+	                  if (selectedFilter === undefined) {
 	                    return true;
 	                  }
-	                  // Sinon, vérifier si l'œuvre correspond à au moins un filtre
-	                  return selectedFilters.includes(oeuvre.periode);
+
+	                  // Vérifier si l'œuvre correspond au filtre
+	                  var matchesFilter = selectedFilter === oeuvre.periode || (selectedFilter === "Peinture" || selectedFilter === "Sculpture") && oeuvre.categories.includes(selectedFilter);
+	                  return matchesFilter;
 	                });
 	                setOeuvres(filteredOeuvres);
 	                setIsLoading(false);
@@ -14268,11 +14259,11 @@
 	        }, _callee);
 	      }));
 	      return function fetchData() {
-	        return _ref.apply(this, arguments);
+	        return _ref2.apply(this, arguments);
 	      };
 	    }();
 	    fetchData();
-	  }, [selectedFilters]);
+	  }, [selectedFilter]);
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "container"
 	  }, isLoading && /*#__PURE__*/React.createElement($bab978db7e7ddb54$export$67ad50c48ca3ede4, {
@@ -14468,7 +14459,7 @@
 
 	var FilterButton = function FilterButton(_ref) {
 	  var filterName = _ref.filterName,
-	    selectedFilters = _ref.selectedFilters,
+	    selectedFilter = _ref.selectedFilter,
 	    _onClick = _ref.onClick;
 	  return /*#__PURE__*/React.createElement(Link, {
 	    to: "/".concat(filterName)
@@ -14476,25 +14467,22 @@
 	    onClick: function onClick() {
 	      return _onClick(filterName);
 	    },
-	    className: selectedFilters.includes(filterName) ? "selectedButton" : ""
+	    className: "filterButton ".concat(selectedFilter === filterName ? "selectedButton" : "")
 	  }, filterName));
 	};
 	var Header = function Header(_ref2) {
 	  var onFilterChange = _ref2.onFilterChange;
-	  var _useState = reactExports.useState([]),
+	  var _useState = reactExports.useState(""),
 	    _useState2 = _slicedToArray(_useState, 2),
-	    selectedFilters = _useState2[0],
-	    setSelectedFilters = _useState2[1];
+	    selectedFilter = _useState2[0],
+	    setSelectedFilter = _useState2[1];
 	  var _useState3 = reactExports.useState(""),
 	    _useState4 = _slicedToArray(_useState3, 2);
 	    _useState4[0];
 	    var setSelectedText = _useState4[1];
 	  var handleButtonClick = function handleButtonClick(filterName) {
-	    var updatedFilters = selectedFilters.includes(filterName) ? selectedFilters.filter(function (filter) {
-	      return filter !== filterName;
-	    }) : [].concat(_toConsumableArray(selectedFilters), [filterName]);
-	    setSelectedFilters(updatedFilters);
-	    onFilterChange(updatedFilters);
+	    setSelectedFilter(filterName);
+	    onFilterChange(filterName);
 	  };
 	  var handleSearch = function handleSearch() {
 	    // Logique de recherche à implémenter
@@ -14502,7 +14490,7 @@
 	  var handleInputText = function handleInputText(event) {
 	    setSelectedText(event.target.value);
 	  };
-	  console.log("Header", selectedFilters);
+	  console.log("Header", selectedFilter);
 	  var filters = ["Baroque", "Renaissance", "Rococo", "Classicisme", "Peinture", "Sculpture"];
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "headerContainer"
@@ -14524,7 +14512,7 @@
 	    return /*#__PURE__*/React.createElement(FilterButton, {
 	      key: filter,
 	      filterName: filter,
-	      selectedFilters: selectedFilters,
+	      selectedFilter: selectedFilter,
 	      onClick: handleButtonClick
 	    });
 	  })));
@@ -14563,18 +14551,19 @@
 	};
 
 	var Accueil = function Accueil() {
-	  var _useState = reactExports.useState([]),
+	  var _useState = reactExports.useState(),
 	    _useState2 = _slicedToArray(_useState, 2),
-	    selectedFilters = _useState2[0],
-	    setSelectedFilters = _useState2[1];
-	  var handleFilterChange = function handleFilterChange(newFilters) {
-	    setSelectedFilters(newFilters);
+	    selectedFilter = _useState2[0],
+	    setSelectedFilter = _useState2[1];
+	  var handleFilterChange = function handleFilterChange(newFilter) {
+	    setSelectedFilter(newFilter);
 	  };
+	  console.log("Accueil", selectedFilter);
 	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
 	    onFilterChange: handleFilterChange
 	  }), /*#__PURE__*/React.createElement(Oeuvres, {
-	    selectedFilters: selectedFilters
-	  }), /*#__PURE__*/React.createElement(Footer, null));
+	    selectedFilter: selectedFilter
+	  }));
 	};
 
 	var lib = {};

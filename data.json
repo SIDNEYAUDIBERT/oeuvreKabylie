@@ -3,7 +3,7 @@
     {
       "periode": "Renaissance",
       "id": "kq3090m5aol",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Joconde",
       "artiste": "Leonardo da Vinci",
       "date": "1503-1506",
@@ -16,7 +16,7 @@
     {
       "periode": "Renaissance",
       "id": "kq3090m89a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Naissance de Vénus",
       "artiste": "Sandro Botticelli",
       "date": "1484-1486",
@@ -29,7 +29,7 @@
     {
       "periode": "Renaissance",
       "id": "kq30907643a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Cène",
       "artiste": "Leonardo da Vinci",
       "date": "1495-1498",
@@ -42,7 +42,7 @@
     {
       "periode": "Renaissance",
       "id": "kq309234a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Primavera",
       "artiste": "Sandro Botticelli",
       "date": "1477-1482",
@@ -55,7 +55,7 @@
     {
       "periode": "Renaissance",
       "id": "kq30902ZED5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "L'Homme de Vitruve",
       "artiste": "Leonardo da Vinci",
       "date": "1490",
@@ -68,7 +68,7 @@
     {
       "periode": "Renaissance",
       "id": "kq3090m5asd",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "David",
       "artiste": "Michel-Ange",
       "date": "1501-1504",
@@ -81,7 +81,7 @@
     {
       "periode": "Renaissance",
       "id": "kq30965Gm5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "La Pieta",
       "artiste": "Michel-Ange",
       "date": "1498-1499",
@@ -94,7 +94,7 @@
     {
       "periode": "Renaissance",
       "id": "kq3090mJJKa",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Bacchus",
       "artiste": "Michel-Ange",
       "date": "1496-1497",
@@ -107,7 +107,7 @@
     {
       "periode": "Renaissance",
       "id": "kq309JDJHa",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Les Esclaves",
       "artiste": "Michel-Ange",
       "date": "1513-1534",
@@ -120,7 +120,7 @@
     {
       "periode": "Renaissance",
       "id": "kq5409JDJHa",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Mercure",
       "artiste": "Giambologna",
       "date": "1580",
@@ -133,7 +133,7 @@
     {
       "periode": "Baroque",
       "id": "kqsa",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "Les Ménines",
       "artiste": "Diego Velázquez",
       "date": "1656",
@@ -146,7 +146,7 @@
     {
       "periode": "Baroque",
       "id": "kqsz5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Leçon d'anatomie du docteur Tulp",
       "artiste": "Rembrandt",
       "date": "1632",
@@ -159,7 +159,7 @@
     {
       "periode": "Baroque",
       "id": "kqszaa5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Jeune Fille à la perle",
       "artiste": "Johannes Vermeer",
       "date": "1665",
@@ -172,7 +172,7 @@
     {
       "periode": "Baroque",
       "id": "kqsz5a0",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Ronde de nuit",
       "artiste": "Rembrandt",
       "date": "1642",
@@ -185,7 +185,7 @@
     {
       "periode": "Baroque",
       "id": "kqsz5ki0",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Laitière",
       "artiste": "Johannes Vermeer",
       "date": "1658",
@@ -198,7 +198,7 @@
     {
       "periode": "Baroque",
       "id": "kqszopm5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Le Bernin",
       "artiste": "Le Bernin",
       "date": "1623-1624",
@@ -211,7 +211,7 @@
     {
       "periode": "Baroque",
       "id": "kqszzz5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Le Bernin",
       "artiste": "Le Bernin",
       "date": "1622-1625",
@@ -224,7 +224,7 @@
     {
       "periode": "Baroque",
       "id": "kqopm5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Le Berni",
       "artiste": "Le Berni",
       "date": "1622-1625",
@@ -237,7 +237,7 @@
     {
       "periode": "Baroque",
       "id": "kqszop4m5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Le Bernin",
       "artiste": "Le Bernin",
       "date": "1622-1625",
@@ -250,8 +250,8 @@
 
     {
       "periode": "Rococo",
-      "id": "kq3o0m5a",
-      "categories": "peinture",
+      "id": "kq3o0m5b",
+      "categories": "Peinture",
       "titre": "L'Éscarpolette",
       "artiste": "Jean-Honoré Fragonard",
       "date": "1767",
@@ -264,7 +264,7 @@
     {
       "periode": "Rococo",
       "id": "kq54o0m5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Leçon de musique",
       "artiste": "Jean-Antoine Watteau",
       "date": "1719",
@@ -277,7 +277,7 @@
     {
       "periode": "Rococo",
       "id": "kq20o0m5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "Le Verrou",
       "artiste": "Jean-Honoré Fragonard",
       "date": "1777",
@@ -290,7 +290,7 @@
     {
       "periode": "Rococo",
       "id": "k2PM3o0m5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "Le Retour de pêche",
       "artiste": "François Boucher",
       "date": "1732",
@@ -303,7 +303,7 @@
     {
       "periode": "Rococo",
       "id": "kq3oytbm5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "L'Amour menaçant",
       "artiste": "Jean-Honoré Fragonard",
       "date": "1770",
@@ -316,7 +316,7 @@
     {
       "periode": "Rococo",
       "id": "kq3o0m3a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Cupidon endormi",
       "artiste": "Étienne Maurice Falconet",
       "date": "1757",
@@ -329,7 +329,7 @@
     {
       "periode": "Rococo",
       "id": "k13o0m5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Le Baiser",
       "artiste": "Auguste Rodin",
       "date": "1886",
@@ -342,7 +342,7 @@
     {
       "periode": "Rococo",
       "id": "kq3o2m5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Vénus de Milo",
       "artiste": "Alexandros de Antioch",
       "date": "100 av. J.-C.",
@@ -355,7 +355,7 @@
     {
       "periode": "Rococo",
       "id": "kq3o12m5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Cupidon et Psyché",
       "artiste": "Antonio Canova",
       "date": "1787",
@@ -368,7 +368,7 @@
     {
       "periode": "Rococo",
       "id": "kq3o0m78a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Amour captif",
       "artiste": "Théodore Géricault",
       "date": "1817",
@@ -381,7 +381,7 @@
     {
       "periode": "Classicisme",
       "id": "kqsz00pm5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "Le Sacre de Napoléon",
       "artiste": "Jacques-Louis David",
       "date": "1805-1807",
@@ -394,7 +394,7 @@
     {
       "periode": "Classicisme",
       "id": "kqsz00p35a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "Portrait de Madame Récamier",
       "artiste": "Jacques-Louis David",
       "date": "1800",
@@ -407,7 +407,7 @@
     {
       "periode": "Classicisme",
       "id": "kq2z00pm5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "Le Serment des Horaces",
       "artiste": "Jacques-Louis David",
       "date": "1784",
@@ -420,7 +420,7 @@
     {
       "periode": "Classicisme",
       "id": "kqsz07pm5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Mort de Sardanapale",
       "artiste": "Eugène Delacroix",
       "date": "1827",
@@ -433,7 +433,7 @@
     {
       "periode": "Classicisme",
       "id": "kqs300pm5a",
-      "categories": "peinture",
+      "categories": "Peinture",
       "titre": "La Liberté guidant le peuple",
       "artiste": "Eugène Delacroix",
       "date": "1830",
@@ -445,8 +445,8 @@
     },
     {
       "periode": "Classicisme",
-      "id": "kq3o0m5a",
-      "categories": "s1",
+      "id": "kq3o0m5c",
+      "categories": "Sculpture",
       "titre": "Le Premier Consul Bonaparte",
       "artiste": "Antonio Canova",
       "date": "1802-1806",
@@ -458,8 +458,8 @@
     },
     {
       "periode": "Classicisme",
-      "id": "kq3o0m5a",
-      "categories": "s1",
+      "id": "kq3o0m5d",
+      "categories": "Sculpture",
       "titre": "Apollon et Daphné",
       "artiste": "Gian Lorenzo Bernini",
       "date": "1622-1625",
@@ -472,7 +472,7 @@
     {
       "periode": "Classicisme",
       "id": "kq3o0m5a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Psyche Revived by Cupid's Kiss",
       "artiste": "Antonio Canova",
       "date": "1787-1793",
@@ -485,7 +485,7 @@
     {
       "periode": "Classicisme",
       "id": "kq3o0mUa",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "La Victoire de Samothrace",
       "artiste": "Inconnu",
       "date": "190 av. J.-C.",
@@ -498,7 +498,7 @@
     {
       "periode": "Classicisme",
       "id": "kq3o0m&a",
-      "categories": "s1",
+      "categories": "Sculpture",
       "titre": "Laocoon et ses fils",
       "artiste": "Agesandros, Polydoros, Athanadoros de Rhodes",
       "date": "1er siècle av. J.-C.",

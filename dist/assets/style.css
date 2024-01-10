@@ -183,6 +183,19 @@ body {
   left: -28px;
 }
 
+.filterButton {
+  /* Add your regular button styles here */
+  background-color: #ffffff; /* Default background color */
+  color: #000000; /* Default text color */
+  /* Add other styles as needed */
+}
+
+.selectedButton {
+  background-color: #808080; /* Gray background color for the selected button */
+  /* You can customize the color as needed */
+  color: black; /* Text color for the selected button */
+}
+
 .headerContainer {
   display: flex;
   width: 100%;

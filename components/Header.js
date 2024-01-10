@@ -2,27 +2,26 @@ import React, { useState } from "react";
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const FilterButton = ({ filterName, selectedFilters, onClick }) => (
+const FilterButton = ({ filterName, selectedFilter, onClick }) => (
   <Link to={`/${filterName}`}>
     <button
       onClick={() => onClick(filterName)}
-      className={selectedFilters.includes(filterName) ? "selectedButton" : ""}
+      className={`filterButton ${
+        selectedFilter === filterName ? "selectedButton" : ""
+      }`}
     >
       {filterName}
     </button>
   </Link>
 );
+
 const Header = ({ onFilterChange }) => {
-  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedFilter, setSelectedFilter] = useState("");
   const [selectedText, setSelectedText] = useState("");
 
   const handleButtonClick = (filterName) => {
-    const updatedFilters = selectedFilters.includes(filterName)
-      ? selectedFilters.filter((filter) => filter !== filterName)
-      : [...selectedFilters, filterName];
-
-    setSelectedFilters(updatedFilters);
-    onFilterChange(updatedFilters);
+    setSelectedFilter(filterName);
+    onFilterChange(filterName);
   };
 
   const handleSearch = () => {
@@ -33,7 +32,7 @@ const Header = ({ onFilterChange }) => {
     setSelectedText(event.target.value);
   };
 
-  console.log("Header", selectedFilters);
+  console.log("Header", selectedFilter);
 
   const filters = [
     "Baroque",
@@ -62,7 +61,7 @@ const Header = ({ onFilterChange }) => {
           <FilterButton
             key={filter}
             filterName={filter}
-            selectedFilters={selectedFilters}
+            selectedFilter={selectedFilter}
             onClick={handleButtonClick}
           />
         ))}
