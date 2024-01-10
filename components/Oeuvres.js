@@ -12,38 +12,55 @@ const Oeuvres = () => {
     const [noData, setNoData] = useState(false);
     const { selectedFilter, recherche } = useParams();
 
-    console.log("recherche", recherche);
-    console.log("selectedFilter", selectedFilter);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                const filteredOeuvres = data.oeuvres.filter((oeuvre) => {
-                    // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
-
-                    if (
-                        selectedFilter === undefined &&
-                        recherche === undefined
-                    ) {
-                        return true;
-                    }
-
-                    // Vérifier si l'œuvre correspond au filtre
-                    const matchesFilter =
-                        (oeuvre.titre.toLocaleLowerCase().includes(recherche.toLocaleLowerCase()) &&
-                            selectedFilter === undefined) ||
-                        selectedFilter === oeuvre.periode ||
-                        oeuvre.categories == selectedFilter;
+                // Si les filtres sont sélectionnés, afficher les œuvres correspondantes
+                if (selectedFilter !== undefined || recherche !== undefined) {
+                    console.log("je suis là");
+                    const filteredOeuvres = data.oeuvres.filter((oeuvre) => {
+                        // Vérifier si l'œuvre correspond au filtre
+                        let  matchesFilter 
+                        if(recherche !== undefined){ 
+                          matchesFilter = (oeuvre.titre.toLowerCase().includes(recherche.toLowerCase()) &&
+                          selectedFilter === undefined) 
+                        } else {
+                          matchesFilter = selectedFilter === oeuvre.periode || oeuvre.categories == selectedFilter;
+                        }
                         setNoData(false);
-                    return matchesFilter;
-                });
+                        return matchesFilter;
+                    });
 
-                setOeuvres(filteredOeuvres);
-                setIsLoading(false);
+                    if (filteredOeuvres.length === 0) {
+                        setNoData(true);
+                    }
+                    setOeuvres(filteredOeuvres);
+                    setIsLoading(false);
+                }
 
-                if (filteredOeuvres.length === 0) {
-                    setNoData(true);
+                // Sinon afficher toutes les œuvres
+                if (selectedFilter === undefined && recherche === undefined) {
+                     setNoData(false);
+                    const limitedOeuvers = {};
+
+                    data.oeuvres.forEach((oeuvre) => {
+                      // créer un tableau vide pour chaque période
+                        if (!limitedOeuvers[oeuvre.periode]) {
+                            limitedOeuvers[oeuvre.periode] = [];
+                        }
+                         // ajoute de pérode à chaque tableau
+                        if (limitedOeuvers[oeuvre.periode].length < 3) {
+                            limitedOeuvers[oeuvre.periode].push({ ...oeuvre });
+                        }
+                    });
+
+                    // aplatir les tableaux, créer un eseul structure de données 
+                    const flattenedOeuvres =
+                        Object.values(limitedOeuvers).flat();
+
+                    setOeuvres(flattenedOeuvres);
+                    setIsLoading(false);
                 }
             } catch (error) {
                 console.error("Erreur lors du chargement des données:", error);
@@ -53,14 +70,9 @@ const Oeuvres = () => {
         fetchData();
     }, [selectedFilter, recherche]);
 
-    console.log("noData", noData);
-
     return (
-    
         <div>
             <div className="container">
-          
-                
                 {isLoading && (
                     <Oval
                         visible={true}
@@ -75,7 +87,7 @@ const Oeuvres = () => {
                 )}
 
                 <div className="oeuvres-container">
-                {noData && <Alert />}
+                    {noData && <Alert />}
                     {oeuvres.map((oeuvre) => (
                         <Oeuvre
                             key={oeuvre.id}

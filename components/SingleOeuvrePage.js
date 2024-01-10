@@ -14,15 +14,13 @@ const SingleOeuvrePage = () => {
 
   useEffect(() => {
     const fetchOeuvreAndSimilar = (slugify) => {
-      let foundOeuvre = null;
+      let found = null;
       let similarOeuvres = [];
 
       // Utilize the find function to find the corresponding artwork by slugify
-      const found = data.oeuvres.find((oeuvre) => oeuvre.slugify === slugify);
+       found = data.oeuvres.find((oeuvre) => oeuvre.slugify === slugify);
 
       if (found) {
-        foundOeuvre = { ...found, periode: found.periode };
-
         // Utilize filter to get similar artworks
         similarOeuvres = data.oeuvres
           .filter(
@@ -30,24 +28,15 @@ const SingleOeuvrePage = () => {
               otherOeuvre.categories === found.categories &&
               otherOeuvre.periode === found.periode &&
               otherOeuvre.slugify !== found.slugify
-          )
-          .map(({ id, titre, artiste, image, prix, date, slugify,periode }) => ({
-            id,
-            titre,
-            artiste,
-            image,
-            slugify,
-            date,
-            prix,
-            periode
-          }));
+          );
+         
       }
-      return { foundOeuvre, similarOeuvres };
+      return { found, similarOeuvres };
     };
 
-    const { foundOeuvre, similarOeuvres } = fetchOeuvreAndSimilar(slugify);
+    const { found, similarOeuvres } = fetchOeuvreAndSimilar(slugify);
 
-    setOeuvre(foundOeuvre);
+    setOeuvre(found);
     setSimilarOeuvres(similarOeuvres);
   }, [slugify]);
 

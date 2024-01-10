@@ -5,6 +5,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import replace from "@rollup/plugin-replace";
 import json from '@rollup/plugin-json';
+import { terser } from 'rollup-plugin-terser'
 
 // Importez le plugin SCSS
 import scss from "rollup-plugin-scss";
@@ -42,5 +43,6 @@ export default {
       port: 3000,
     }),
     livereload({ watch: "dist" }),
+    terser(), // Minifier le code pour la production
   ],
 };
