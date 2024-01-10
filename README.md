@@ -1,9 +1,15 @@
 ## What is OeuvresKabylie
 
-OeuvresKabylie is the meeting of the best artworks from kabylie's best artists. 
+OeuvresKabylie is the meeting of the best artworks from kabylie's best artists.
+
+## Features
+
+The user can make multiples things : filtering 
+
 
 
 ## How to launch ?
 
-_npm install_ to install dependencies
-_npm run start_ to start the app
+```npm install``` to install dependencies
+```npm run start``` to start the app
+
