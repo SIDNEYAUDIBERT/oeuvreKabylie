@@ -351,8 +351,11 @@ a:hover {
 }
 
 .alert {
-  background-color: red;
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  height: 500px;
 }
 
 /* Slider */

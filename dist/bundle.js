@@ -13703,6 +13703,12 @@
 	  }, /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("p", null, "Date de cr\xE9ation : ", dateCreation), /*#__PURE__*/React.createElement("p", null, "Prix : ", prix), /*#__PURE__*/React.createElement("p", null, "P\xE9riode : ", periode), /*#__PURE__*/React.createElement("p", null, "Cat\xE9gorie : ", categories))));
 	};
 
+	var Alert = function Alert() {
+	  return /*#__PURE__*/React.createElement("div", {
+	    className: "alert"
+	  }, /*#__PURE__*/React.createElement("p", null, "Aucune oeuvre trouv\xE9e, veuillez r\xE9essayer"));
+	};
+
 	var oeuvres = [
 		{
 			periode: "Renaissance",
@@ -14438,7 +14444,7 @@
 	    fetchData();
 	  }, [selectedFilter, recherche]);
 	  console.log("noData", noData);
-	  return /*#__PURE__*/React.createElement("div", null, noData && /*#__PURE__*/React.createElement("p", null, "qsckhqksdhqksdkhhqsd"), /*#__PURE__*/React.createElement("div", {
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
 	    className: "container"
 	  }, isLoading && /*#__PURE__*/React.createElement($bab978db7e7ddb54$export$67ad50c48ca3ede4, {
 	    visible: true,
@@ -14453,7 +14459,7 @@
 	    color: "black"
 	  }), /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvres-container"
-	  }, oeuvres.map(function (oeuvre) {
+	  }, noData && /*#__PURE__*/React.createElement(Alert, null), oeuvres.map(function (oeuvre) {
 	    return /*#__PURE__*/React.createElement(Oeuvre, {
 	      key: oeuvre.id,
 	      imageSrc: oeuvre.image,
