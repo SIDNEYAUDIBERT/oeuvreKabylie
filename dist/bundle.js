@@ -14216,8 +14216,7 @@
 		oeuvres: oeuvres
 	};
 
-	var Oeuvres = function Oeuvres(_ref) {
-	  var selectedFilter = _ref.selectedFilter;
+	var Oeuvres = function Oeuvres() {
 	  var _useState = reactExports.useState([]),
 	    _useState2 = _slicedToArray(_useState, 2),
 	    oeuvres = _useState2[0],
@@ -14226,17 +14225,19 @@
 	    _useState4 = _slicedToArray(_useState3, 2),
 	    isLoading = _useState4[0],
 	    setIsLoading = _useState4[1];
-	  //const { selectedFilter } = useParams();
-
-	  console.log("selectedFilter :", selectedFilter);
+	  var _useParams = useParams(),
+	    selectedFilter = _useParams.selectedFilter,
+	    recherche = _useParams.recherche;
+	  console.log("recherche", recherche);
 	  reactExports.useEffect(function () {
 	    var fetchData = /*#__PURE__*/function () {
-	      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+	      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
 	        var filteredOeuvres;
 	        return _regeneratorRuntime().wrap(function _callee$(_context) {
 	          while (1) switch (_context.prev = _context.next) {
 	            case 0:
 	              try {
+	                setIsLoading(true);
 	                filteredOeuvres = data.oeuvres.filter(function (oeuvre) {
 	                  // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
 	                  if (selectedFilter === undefined) {
@@ -14259,7 +14260,7 @@
 	        }, _callee);
 	      }));
 	      return function fetchData() {
-	        return _ref2.apply(this, arguments);
+	        return _ref.apply(this, arguments);
 	      };
 	    }();
 	    fetchData();
@@ -14477,15 +14478,16 @@
 	    selectedFilter = _useState2[0],
 	    setSelectedFilter = _useState2[1];
 	  var _useState3 = reactExports.useState(""),
-	    _useState4 = _slicedToArray(_useState3, 2);
-	    _useState4[0];
-	    var setSelectedText = _useState4[1];
+	    _useState4 = _slicedToArray(_useState3, 2),
+	    selectedText = _useState4[0],
+	    setSelectedText = _useState4[1];
+	  var navigate = useNavigate();
 	  var handleButtonClick = function handleButtonClick(filterName) {
 	    setSelectedFilter(filterName);
 	    onFilterChange(filterName);
 	  };
 	  var handleSearch = function handleSearch() {
-	    // Logique de recherche à implémenter
+	    navigate("/recherche/".concat(selectedText));
 	  };
 	  var handleInputText = function handleInputText(event) {
 	    setSelectedText(event.target.value);
@@ -14551,19 +14553,7 @@
 	};
 
 	var Accueil = function Accueil() {
-	  var _useState = reactExports.useState(),
-	    _useState2 = _slicedToArray(_useState, 2),
-	    selectedFilter = _useState2[0],
-	    setSelectedFilter = _useState2[1];
-	  var handleFilterChange = function handleFilterChange(newFilter) {
-	    setSelectedFilter(newFilter);
-	  };
-	  console.log("Accueil", selectedFilter);
-	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
-	    onFilterChange: handleFilterChange
-	  }), /*#__PURE__*/React.createElement(Oeuvres, {
-	    selectedFilter: selectedFilter
-	  }));
+	  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(Oeuvres, null), /*#__PURE__*/React.createElement(Footer, null));
 	};
 
 	var lib = {};
@@ -19433,7 +19423,8 @@
 	            image = _ref.image,
 	            prix = _ref.prix,
 	            date = _ref.date,
-	            slugify = _ref.slugify;
+	            slugify = _ref.slugify,
+	            periode = _ref.periode;
 	          return {
 	            id: id,
 	            titre: titre,
@@ -19441,7 +19432,8 @@
 	            image: image,
 	            slugify: slugify,
 	            date: date,
-	            prix: prix
+	            prix: prix,
+	            periode: periode
 	          };
 	        });
 	      }
@@ -19521,7 +19513,11 @@
 	    element: /*#__PURE__*/React.createElement(Accueil, null)
 	  }), /*#__PURE__*/React.createElement(Route, {
 	    exact: true,
-	    path: "/:selectedFilters",
+	    path: "/:selectedFilter",
+	    element: /*#__PURE__*/React.createElement(Accueil, null)
+	  }), /*#__PURE__*/React.createElement(Route, {
+	    exact: true,
+	    path: "/recherche/:recherche",
 	    element: /*#__PURE__*/React.createElement(Accueil, null)
 	  }), /*#__PURE__*/React.createElement(Route, {
 	    path: "/oeuvre/:slugify",

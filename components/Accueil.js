@@ -4,18 +4,13 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const Accueil = () => {
-  const [selectedFilter, setSelectedFilter] = useState();
-
-  const handleFilterChange = (newFilter) => {
-    setSelectedFilter(newFilter);
-  };
-  console.log("Accueil", selectedFilter);
-  return (
-    <div>
-      <Header onFilterChange={handleFilterChange} />
-      <Oeuvres selectedFilter={selectedFilter} />
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <Oeuvres />
+            <Footer />
+        </div>
+    );
 };
 
 export default Accueil;

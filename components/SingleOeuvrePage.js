@@ -31,7 +31,7 @@ const SingleOeuvrePage = () => {
               otherOeuvre.periode === found.periode &&
               otherOeuvre.slugify !== found.slugify
           )
-          .map(({ id, titre, artiste, image, prix, date, slugify }) => ({
+          .map(({ id, titre, artiste, image, prix, date, slugify,periode }) => ({
             id,
             titre,
             artiste,
@@ -39,6 +39,7 @@ const SingleOeuvrePage = () => {
             slugify,
             date,
             prix,
+            periode
           }));
       }
       return { foundOeuvre, similarOeuvres };

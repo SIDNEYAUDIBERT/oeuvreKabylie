@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const FilterButton = ({ filterName, selectedFilter, onClick }) => (
   <Link to={`/${filterName}`}>
@@ -19,13 +21,15 @@ const Header = ({ onFilterChange }) => {
   const [selectedFilter, setSelectedFilter] = useState("");
   const [selectedText, setSelectedText] = useState("");
 
+  const navigate = useNavigate();
+
   const handleButtonClick = (filterName) => {
     setSelectedFilter(filterName);
     onFilterChange(filterName);
   };
 
   const handleSearch = () => {
-    // Logique de recherche à implémenter
+    navigate(`/recherche/${selectedText}`);
   };
 
   const handleInputText = (event) => {

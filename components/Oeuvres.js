@@ -4,16 +4,17 @@ import Oeuvre from "./Oeuvre";
 import data from "../data.json";
 import { useParams } from "react-router-dom";
 
-const Oeuvres = ({ selectedFilter }) => {
+const Oeuvres = () => {
   const [oeuvres, setOeuvres] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  //const { selectedFilter } = useParams();
+  const { selectedFilter,recherche } = useParams();
 
-  console.log("selectedFilter :", selectedFilter);
+  console.log("recherche", recherche);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const filteredOeuvres = data.oeuvres.filter((oeuvre) => {
           // Si aucun filtre n'est sélectionné, afficher toutes les œuvres
           if (selectedFilter === undefined) {
@@ -29,6 +30,7 @@ const Oeuvres = ({ selectedFilter }) => {
 
           return matchesFilter;
         });
+        
 
         setOeuvres(filteredOeuvres);
         setIsLoading(false);
