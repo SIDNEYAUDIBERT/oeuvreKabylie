@@ -10,6 +10,6 @@ The user can make multiples things : filtering
 
 ## How to launch ?
 
-```npm install``` to install dependencies__
+```npm install``` to install dependencies\
 ```npm run start``` to start the app
 
