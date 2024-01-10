@@ -48,6 +48,8 @@ const Header = () => {
   return (
     <div className="headerContainer">
       <div className="searchBarContainer">
+        <Link to="/"><img src="../images/logo.png" alt="logo" className="logo" /></Link>
+        <div className="searchForm">
         <input
           onChange={handleInputText}
           type="text"
@@ -57,6 +59,12 @@ const Header = () => {
         <div className="iconeContainer">
           <Search className="icone" onClick={handleSearch} />
         </div>
+        </div>
+        <div className="navsection">
+          <Link to="/ajoutOeuvre"><p>Ajouter une oeuvre</p></Link> 
+          <Link to="/contact"><p>Contact</p></Link>
+        </div>
+        
       </div>
       <div className="buttonContainer">
         {filters.map((filter) => (

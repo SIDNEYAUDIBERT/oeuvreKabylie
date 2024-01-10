@@ -23,8 +23,7 @@ const Oeuvres = () => {
                         // Vérifier si l'œuvre correspond au filtre
                         let  matchesFilter 
                         if(recherche !== undefined){ 
-                          matchesFilter = (oeuvre.titre.toLowerCase().includes(recherche.toLowerCase()) &&
-                          selectedFilter === undefined) 
+                          matchesFilter = (oeuvre.titre.toLowerCase().includes(recherche.toLowerCase()) && selectedFilter === undefined);
                         } else {
                           matchesFilter = selectedFilter === oeuvre.periode || oeuvre.categories == selectedFilter;
                         }
