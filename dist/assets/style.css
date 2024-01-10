@@ -350,6 +350,11 @@ a:hover {
   color: #fff;
 }
 
+.alert {
+  background-color: red;
+  height: 100px;
+}
+
 /* Slider */
 .slick-loading .slick-list {
   background: #fff url("./ajax-loader.gif") center center no-repeat;

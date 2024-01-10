@@ -14388,6 +14388,10 @@
 	    _useState4 = _slicedToArray(_useState3, 2),
 	    isLoading = _useState4[0],
 	    setIsLoading = _useState4[1];
+	  var _useState5 = reactExports.useState(false),
+	    _useState6 = _slicedToArray(_useState5, 2),
+	    noData = _useState6[0],
+	    setNoData = _useState6[1];
 	  var _useParams = useParams(),
 	    selectedFilter = _useParams.selectedFilter,
 	    recherche = _useParams.recherche;
@@ -14410,12 +14414,14 @@
 	                  }
 
 	                  // Vérifier si l'œuvre correspond au filtre
-	                  console.log("jrierno", oeuvre.titre);
 	                  var matchesFilter = oeuvre.titre.includes(recherche) && selectedFilter === undefined || selectedFilter === oeuvre.periode || oeuvre.categories == selectedFilter;
 	                  return matchesFilter;
 	                });
 	                setOeuvres(filteredOeuvres);
 	                setIsLoading(false);
+	                if (filteredOeuvres.length === 0) {
+	                  setNoData(true);
+	                }
 	              } catch (error) {
 	                console.error("Erreur lors du chargement des données:", error);
 	              }
@@ -14431,7 +14437,8 @@
 	    }();
 	    fetchData();
 	  }, [selectedFilter, recherche]);
-	  return /*#__PURE__*/React.createElement("div", {
+	  console.log("noData", noData);
+	  return /*#__PURE__*/React.createElement("div", null, noData && /*#__PURE__*/React.createElement("p", null, "qsckhqksdhqksdkhhqsd"), /*#__PURE__*/React.createElement("div", {
 	    className: "container"
 	  }, isLoading && /*#__PURE__*/React.createElement($bab978db7e7ddb54$export$67ad50c48ca3ede4, {
 	    visible: true,
@@ -14458,7 +14465,7 @@
 	      id: oeuvre.id,
 	      slugify: oeuvre.slugify
 	    });
-	  })));
+	  }))));
 	};
 
 	var FilterButton = function FilterButton(_ref) {
@@ -14489,7 +14496,6 @@
 	  };
 	  var handleSearch = function handleSearch() {
 	    navigate("/recherche/".concat(selectedText));
-	    selectedText("");
 	  };
 	  var handleInputText = function handleInputText(event) {
 	    setSelectedText(event.target.value);
