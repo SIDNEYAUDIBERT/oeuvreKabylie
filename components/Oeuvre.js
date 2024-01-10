@@ -19,7 +19,6 @@ const Oeuvre = ({
           <p>Date de création : {dateCreation}</p>
           <p>Prix : {prix}</p>
           <p>Période : {periode}</p>
-          <p>Catégorie : {categories}</p>
         </div>
       </Link>
     </div>

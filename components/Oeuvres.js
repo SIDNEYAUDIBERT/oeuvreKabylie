@@ -31,11 +31,11 @@ const Oeuvres = () => {
 
                     // Vérifier si l'œuvre correspond au filtre
                     const matchesFilter =
-                        (oeuvre.titre.includes(recherche) &&
+                        (oeuvre.titre.toLocaleLowerCase().includes(recherche.toLocaleLowerCase()) &&
                             selectedFilter === undefined) ||
                         selectedFilter === oeuvre.periode ||
                         oeuvre.categories == selectedFilter;
-
+                        setNoData(false);
                     return matchesFilter;
                 });
 

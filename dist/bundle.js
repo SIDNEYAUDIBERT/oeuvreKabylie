@@ -13687,8 +13687,8 @@
 	    dateCreation = _ref.dateCreation,
 	    prix = _ref.prix,
 	    periode = _ref.periode,
-	    slugify = _ref.slugify,
-	    categories = _ref.categories;
+	    slugify = _ref.slugify;
+	    _ref.categories;
 	  return /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvre-card"
 	  }, /*#__PURE__*/React.createElement(Link, {
@@ -13700,7 +13700,7 @@
 	    className: "oeuvre-image"
 	  }), /*#__PURE__*/React.createElement("div", {
 	    className: "oeuvre-details"
-	  }, /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("p", null, "Date de cr\xE9ation : ", dateCreation), /*#__PURE__*/React.createElement("p", null, "Prix : ", prix), /*#__PURE__*/React.createElement("p", null, "P\xE9riode : ", periode), /*#__PURE__*/React.createElement("p", null, "Cat\xE9gorie : ", categories))));
+	  }, /*#__PURE__*/React.createElement("h2", null, title), /*#__PURE__*/React.createElement("p", null, "Date de cr\xE9ation : ", dateCreation), /*#__PURE__*/React.createElement("p", null, "Prix : ", prix), /*#__PURE__*/React.createElement("p", null, "P\xE9riode : ", periode))));
 	};
 
 	var Alert = function Alert() {
@@ -14420,7 +14420,8 @@
 	                  }
 
 	                  // Vérifier si l'œuvre correspond au filtre
-	                  var matchesFilter = oeuvre.titre.includes(recherche) && selectedFilter === undefined || selectedFilter === oeuvre.periode || oeuvre.categories == selectedFilter;
+	                  var matchesFilter = oeuvre.titre.toLocaleLowerCase().includes(recherche.toLocaleLowerCase()) && selectedFilter === undefined || selectedFilter === oeuvre.periode || oeuvre.categories == selectedFilter;
+	                  setNoData(false);
 	                  return matchesFilter;
 	                });
 	                setOeuvres(filteredOeuvres);
