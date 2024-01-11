@@ -401,4 +401,96 @@ a:hover {
     gap: 74PX;
   }
 
+  // formulaire de contacte
+
+  .App-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 201px;
+    height: 764px;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: $primary-color;
+    font-family: $font-family;
+  }
+
+  .formulaire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $primary-color;
+    background-color: #fcfcfc;
+    border: 1px solid #282c34;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+    height: auto;
+    width: 600px;
+    padding: 10px;
+    z-index: 1; /* Ajoute une valeur z-index */
+    
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 10px; /* Ajoute un espacement en bas du label */
+  }
+  
+  
+  .App-header input {
+    flex: 1; /* Fait en sorte que le champ de saisie prenne le reste de l'espace disponible */
+    margin-left: 10px;
+    width: 300px;
+    height: 60px;
+    width: 511px;
+    padding: 8px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #40474f;
+  }
+  
+  .btn {
+    height: 40px;
+    width: 529px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid  #2065b4;
+    background-color: #2065b4;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .error-message {
+    font-size: medium;
+   
+    color: red;
+  }
+  .success-message {
+    font-size: medium;
+    color: green;
+    width: 350px;
+    text-align: center;
+    border: 1px solid green;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  textarea {
+    height: 100px;
+    width: 511px;
+    padding: 8px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #40474f;
+  }
+  
+
+  // end formulaire de contacte
+
    
