@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, Facebook, Twitter, Instagram } from 'lucide-react';
+import { Mail, Phone, Facebook, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,10 +9,10 @@ const Footer = () => {
           <h3>Contactez-nous</h3>
           <div className="contact-info">
             <p>
-              <Mail /> <span>Email:contact@oeuvresdart.com </span> 
+              <Mail /> <span>Email:contact@oeuvresdart.com </span>
             </p>
-            </div>
-            <div className="contact-info">
+          </div>
+          <div className="contact-info">
             <p>
               <Phone /> <span>Téléphone: +123 456 789 </span>
             </p>

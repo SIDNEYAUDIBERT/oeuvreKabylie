@@ -18,18 +18,16 @@ const SingleOeuvrePage = () => {
       let similarOeuvres = [];
 
       // Utilize the find function to find the corresponding artwork by slugify
-       found = data.oeuvres.find((oeuvre) => oeuvre.slugify === slugify);
+      found = data.oeuvres.find((oeuvre) => oeuvre.slugify === slugify);
 
       if (found) {
         // Utilize filter to get similar artworks
-        similarOeuvres = data.oeuvres
-          .filter(
-            (otherOeuvre) =>
-              otherOeuvre.categories === found.categories &&
-              otherOeuvre.periode === found.periode &&
-              otherOeuvre.slugify !== found.slugify
-          );
-         
+        similarOeuvres = data.oeuvres.filter(
+          (otherOeuvre) =>
+            otherOeuvre.categories === found.categories &&
+            otherOeuvre.periode === found.periode &&
+            otherOeuvre.slugify !== found.slugify,
+        );
       }
       return { found, similarOeuvres };
     };

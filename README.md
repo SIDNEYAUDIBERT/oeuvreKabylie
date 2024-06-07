@@ -7,14 +7,15 @@ OeuvresKabylie is the meeting of the best artworks from Kabylie's best artists. 
 The user can do multiple things: filtering arts with the top searchBar, but also filtering them with buttons corresponding to different eras and categories.
 
 ## UI Libraries Used
+
 - **slick-carousel**: Used to display a carousel for showcasing artworks.
 - **lucide-react**: Utilized for incorporating icons into the user interface.
 - **react-loader-spinner**: Implemented for the loading spinner during data retrieval.
 
 ## How to launch ?
 
-```npm install``` to install dependencies\
-```npm run start``` to start the app
+`npm install` to install dependencies\
+`npm run start` to start the app
 
 ## How to test ?
 
