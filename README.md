@@ -19,3 +19,9 @@ The user can do multiple things: filtering arts with the top searchBar, but also
 ## How to test ?
 
 Type the art you want to search in the searchBar and click on the magnifying glass to activate it. If you search for an art that is not in our database, an error message will appear. Also, click on the buttons of periods and categories to filter.
+
+## June 2024 changes
+
+Some new coding tools have been added to this repository : for each branch, you will find the configuration of the following tools : 
+prettier : test it while running **npx prettier . --write** 
+pre-commit : you will see it on your terminal
